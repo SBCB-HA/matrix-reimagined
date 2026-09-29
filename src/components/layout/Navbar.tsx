@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { navigation } from "@/data/home";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 
 const ids = ["top", "about", "ecosystem", "news", "careers", "contact"];

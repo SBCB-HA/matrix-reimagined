@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import heroImage from "@/assets/matrix-hero.jpg";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
