@@ -17,7 +17,7 @@ export function Navbar() {
         <nav className="desktop-nav" aria-label="Điều hướng chính">
           {navigation.map((item, index) => <a key={item} href={`#${ids[index]}`}>{item}</a>)}
         </nav>
-        <Button asChild className="hidden lg:inline-flex"><a href="#contact">Đăng nhập <ArrowRight size={16} /></a></Button>
+        <Button asChild className="hidden lg:inline-flex"><a href="#contact">Liên hệ hợp tác <ArrowRight size={16} /></a></Button>
         <Button variant="ghost" className="menu-button lg:hidden" onClick={() => setOpen(!open)} aria-label="Mở menu">{open ? <X /> : <Menu />}</Button>
       </Container>
       {open && <nav className="mobile-nav">{navigation.map((item, index) => <a key={item} href={`#${ids[index]}`} onClick={() => setOpen(false)}>{item}</a>)}</nav>}

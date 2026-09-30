@@ -27,10 +27,10 @@ export const ecosystem: EcosystemItem[] = [
 ];
 
 export const news: NewsItem[] = [
-  { date: "26/09/2026", title: "MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH", featured: true },
-  { date: "26/09/2026", title: "MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM" },
-  { date: "18/09/2026", title: "MATRIX CAPITAL HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI ĐẦU TƯ VIỆT NAM" },
-  { date: "18/09/2026", title: "MATRIX COMMUNITY HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI KINH DOANH VIỆT NAM" },
+  { date: "26/09/2026", title: "Matrix Holding: Từ khát vọng khởi nghiệp đến hệ sinh thái kinh doanh đa ngành", featured: true },
+  { date: "26/09/2026", title: "Matrix Network: Hệ sinh thái dịch vụ dành cho doanh nghiệp Việt Nam" },
+  { date: "18/09/2026", title: "Matrix Capital và cộng đồng kết nối đầu tư Việt Nam" },
+  { date: "18/09/2026", title: "Matrix Community và cộng đồng kết nối kinh doanh Việt Nam" },
 ];
 
 export const companies: CompanyItem[] = [
