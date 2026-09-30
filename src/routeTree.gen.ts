@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
+import { Route as HeSinhThaiRouteImport } from './routes/he-sinh-thai'
+import { Route as LienHeRouteImport } from './routes/lien-he'
+import { Route as TinTucRouteImport } from './routes/tin-tuc'
+import { Route as TuyenDungRouteImport } from './routes/tuyen-dung'
+import { Route as HeSinhThaiSlugRouteImport } from './routes/he-sinh-thai_.$slug'
+import { Route as TinTucSlugRouteImport } from './routes/tin-tuc_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GioiThieuRoute = GioiThieuRouteImport.update({
+  id: '/gioi-thieu',
+  path: '/gioi-thieu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeSinhThaiRoute = HeSinhThaiRouteImport.update({
+  id: '/he-sinh-thai',
+  path: '/he-sinh-thai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LienHeRoute = LienHeRouteImport.update({
+  id: '/lien-he',
+  path: '/lien-he',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinTucRoute = TinTucRouteImport.update({
+  id: '/tin-tuc',
+  path: '/tin-tuc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TuyenDungRoute = TuyenDungRouteImport.update({
+  id: '/tuyen-dung',
+  path: '/tuyen-dung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeSinhThaiSlugRoute = HeSinhThaiSlugRouteImport.update({
+  id: '/he-sinh-thai_/$slug',
+  path: '/he-sinh-thai/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinTucSlugRoute = TinTucSlugRouteImport.update({
+  id: '/tin-tuc_/$slug',
+  path: '/tin-tuc/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/he-sinh-thai': typeof HeSinhThaiRoute
+  '/lien-he': typeof LienHeRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/he-sinh-thai/$slug': typeof HeSinhThaiSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/he-sinh-thai': typeof HeSinhThaiRoute
+  '/lien-he': typeof LienHeRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/he-sinh-thai/$slug': typeof HeSinhThaiSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/he-sinh-thai': typeof HeSinhThaiRoute
+  '/lien-he': typeof LienHeRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/he-sinh-thai_/$slug': typeof HeSinhThaiSlugRoute
+  '/tin-tuc_/$slug': typeof TinTucSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/gioi-thieu'
+    | '/he-sinh-thai'
+    | '/lien-he'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/he-sinh-thai/$slug'
+    | '/tin-tuc/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/gioi-thieu'
+    | '/he-sinh-thai'
+    | '/lien-he'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/he-sinh-thai/$slug'
+    | '/tin-tuc/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/gioi-thieu'
+    | '/he-sinh-thai'
+    | '/lien-he'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/he-sinh-thai_/$slug'
+    | '/tin-tuc_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GioiThieuRoute: typeof GioiThieuRoute
+  HeSinhThaiRoute: typeof HeSinhThaiRoute
+  LienHeRoute: typeof LienHeRoute
+  TinTucRoute: typeof TinTucRoute
+  TuyenDungRoute: typeof TuyenDungRoute
+  HeSinhThaiSlugRoute: typeof HeSinhThaiSlugRoute
+  TinTucSlugRoute: typeof TinTucSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gioi-thieu': {
+      id: '/gioi-thieu'
+      path: '/gioi-thieu'
+      fullPath: '/gioi-thieu'
+      preLoaderRoute: typeof GioiThieuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/he-sinh-thai': {
+      id: '/he-sinh-thai'
+      path: '/he-sinh-thai'
+      fullPath: '/he-sinh-thai'
+      preLoaderRoute: typeof HeSinhThaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lien-he': {
+      id: '/lien-he'
+      path: '/lien-he'
+      fullPath: '/lien-he'
+      preLoaderRoute: typeof LienHeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-tuc': {
+      id: '/tin-tuc'
+      path: '/tin-tuc'
+      fullPath: '/tin-tuc'
+      preLoaderRoute: typeof TinTucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tuyen-dung': {
+      id: '/tuyen-dung'
+      path: '/tuyen-dung'
+      fullPath: '/tuyen-dung'
+      preLoaderRoute: typeof TuyenDungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/he-sinh-thai_/$slug': {
+      id: '/he-sinh-thai_/$slug'
+      path: '/he-sinh-thai/$slug'
+      fullPath: '/he-sinh-thai/$slug'
+      preLoaderRoute: typeof HeSinhThaiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-tuc_/$slug': {
+      id: '/tin-tuc_/$slug'
+      path: '/tin-tuc/$slug'
+      fullPath: '/tin-tuc/$slug'
+      preLoaderRoute: typeof TinTucSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GioiThieuRoute: GioiThieuRoute,
+  HeSinhThaiRoute: HeSinhThaiRoute,
+  LienHeRoute: LienHeRoute,
+  TinTucRoute: TinTucRoute,
+  TuyenDungRoute: TuyenDungRoute,
+  HeSinhThaiSlugRoute: HeSinhThaiSlugRoute,
+  TinTucSlugRoute: TinTucSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,26 +1,63 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { navigation } from "@/data/home";
+import { siteNavigation } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
-
-const ids = ["top", "about", "ecosystem", "news", "careers", "contact"];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <Container className="flex h-20 items-center justify-between">
-        <a className="brand" href="#top" aria-label="Matrix Holding - Trang chủ">
-          <span className="brand-mark">M</span><span className="brand-divider" /><span>Matrix Holding</span>
-        </a>
+        <Link className="brand" to="/" aria-label="Matrix Holding - Trang chủ">
+          <span className="brand-mark">M</span>
+          <span className="brand-divider" />
+          <span>Matrix Holding</span>
+        </Link>
         <nav className="desktop-nav" aria-label="Điều hướng chính">
-          {navigation.map((item, index) => <a key={item} href={`#${ids[index]}`}>{item}</a>)}
+          {siteNavigation.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              activeProps={{ className: "nav-active", "aria-current": "page" }}
+              activeOptions={{ exact: item.to === "/" }}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
-        <Button asChild className="hidden lg:inline-flex"><a href="#contact">Liên hệ hợp tác <ArrowRight size={16} /></a></Button>
-        <Button variant="ghost" className="menu-button lg:hidden" onClick={() => setOpen(!open)} aria-label="Mở menu">{open ? <X /> : <Menu />}</Button>
+        <Button asChild className="header-contact">
+          <Link to="/lien-he">
+            Liên hệ hợp tác <ArrowRight size={16} />
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          className="menu-button lg:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Đóng menu" : "Mở menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+        >
+          {open ? <X /> : <Menu />}
+        </Button>
       </Container>
-      {open && <nav className="mobile-nav">{navigation.map((item, index) => <a key={item} href={`#${ids[index]}`} onClick={() => setOpen(false)}>{item}</a>)}</nav>}
+      {open && (
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Điều hướng trên điện thoại">
+          {siteNavigation.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={() => setOpen(false)}
+              activeProps={{ className: "nav-active", "aria-current": "page" }}
+              activeOptions={{ exact: item.to === "/" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

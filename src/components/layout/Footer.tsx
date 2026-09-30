@@ -1,22 +1,55 @@
+import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "./Container";
+import { contact, ecosystemDetails } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <Container>
         <div className="footer-top">
-          <a className="brand brand-footer" href="#top"><span className="brand-mark">M</span><span className="brand-divider" /><span>Matrix Holding</span></a>
+          <Link className="brand brand-footer" to="/">
+            <span className="brand-mark">M</span>
+            <span className="brand-divider" />
+            <span>Matrix Holding</span>
+          </Link>
           <div className="contact-list">
-            <a href="mailto:matrixholding.support@gmail.com"><Mail />matrixholding.support@gmail.com</a>
-            <a href="tel:+84964243026"><Phone />(+84) 964 243 026</a>
-            <span><MapPin />KĐT Bắc Linh Đàm, Phường Hoàng Liệt, Hà Nội</span>
+            <a href={`mailto:${contact.email}`}>
+              <Mail />
+              {contact.email}
+            </a>
+            <a href={contact.phoneHref}>
+              <Phone />
+              {contact.phone}
+            </a>
+            <span>
+              <MapPin />
+              {contact.address}
+            </span>
           </div>
         </div>
         <div className="footer-grid">
-          <div><h3>HỆ SINH THÁI</h3><a href="#ecosystem">Matrix Holding</a><a href="#ecosystem">Matrix Network</a><a href="#ecosystem">Matrix Connect</a><a href="#ecosystem">Matrix Ventures</a></div>
-          <div><h3>VỀ CHÚNG TÔI</h3><a href="#about">Giới thiệu</a><a href="#top">Hướng dẫn sử dụng</a><a href="#top">Chính sách bảo mật</a><a href="#top">Điều khoản sử dụng</a></div>
-          <div><h3>THEO DÕI CHÚNG TÔI</h3><div className="socials"><a href="#top">f</a><a href="#top">in</a><a href="#top">▶</a></div></div>
+          <div>
+            <h3>HỆ SINH THÁI</h3>
+            <Link to="/he-sinh-thai">Tổng quan hệ sinh thái</Link>
+            {ecosystemDetails.map((item) => (
+              <Link to="/he-sinh-thai/$slug" params={{ slug: item.slug }} key={item.slug}>
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <h3>KHÁM PHÁ MATRIX</h3>
+            <Link to="/gioi-thieu">Giới thiệu</Link>
+            <Link to="/tin-tuc">Tin tức</Link>
+            <Link to="/tuyen-dung">Tuyển dụng</Link>
+          </div>
+          <div>
+            <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <Link to="/lien-he">Liên hệ hợp tác</Link>
+            <a href={`mailto:${contact.email}`}>Gửi email cho Matrix</a>
+            <a href={contact.phoneHref}>Gọi điện trao đổi</a>
+          </div>
         </div>
         <p className="copyright">© 2026 Matrix Holding. Bảo lưu mọi quyền.</p>
       </Container>
