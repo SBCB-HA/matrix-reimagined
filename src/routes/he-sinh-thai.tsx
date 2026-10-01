@@ -4,6 +4,6 @@ import { pageHead } from "@/data/site";
 
 export const Route = createFileRoute("/he-sinh-thai")({
   head: () =>
-    pageHead("Hệ sinh thái", "Khám phá Matrix Network, Matrix Connect và Matrix Ventures."),
+    pageHead("Hệ sinh thái", "Khám phá Matrix Network, Matrix Community và Matrix Capital."),
   component: EcosystemPage,
 });

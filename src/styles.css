@@ -3,6 +3,8 @@
 @source "../src";
 @import "tw-animate-css";
 @import "./styles/about.css";
+@import "./styles/interior.css";
+@import "./styles/home-refresh.css";
 
 @theme inline {
   --color-background: var(--background);

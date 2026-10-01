@@ -3,15 +3,13 @@ import { Link } from "@tanstack/react-router";
 import { ecosystemDetails as ecosystem } from "@/data/site";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { homeCopy } from "@/data/reference";
 
 export function Ecosystem() {
   return (
     <section className="section ecosystem-section" id="ecosystem">
       <Container>
-        <SectionHeading
-          eyebrow="LĨNH VỰC HOẠT ĐỘNG"
-          title="Một hệ sinh thái. Nhiều cơ hội phát triển."
-        />
+        <SectionHeading eyebrow="LĨNH VỰC HOẠT ĐỘNG" title={homeCopy.ecosystemTitle} />
         <p className="section-intro">Khám phá hệ sinh thái kinh doanh của Matrix Holding</p>
         <div className="ecosystem-grid">
           {ecosystem.map((item, i) => (
@@ -23,7 +21,7 @@ export function Ecosystem() {
                 <h3>{item.name}</h3>
                 <p className="card-role">— {item.role}</p>
                 <p>{item.description}</p>
-                <Link to="/he-sinh-thai/$slug" params={{ slug: item.slug }}>
+                <Link to="/he-sinh-thai">
                   KHÁM PHÁ NGAY <ArrowUpRight />
                 </Link>
               </div>

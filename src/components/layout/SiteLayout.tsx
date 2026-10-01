@@ -12,9 +12,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       !("IntersectionObserver" in window)
     )
       return;
-    const targets = document.querySelectorAll(
-      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div, [data-reveal]",
-    );
+    const selector =
+      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div, [data-reveal]";
+    const registered = new WeakSet<Element>();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,13 +26,26 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       },
       { threshold: 0.12 },
     );
-    targets.forEach((target) => {
-      target.classList.add("reveal-target");
-      observer.observe(target);
-    });
-    document.body.classList.add("motion-ready");
+    const registerTargets = () => {
+      document.querySelectorAll(selector).forEach((target) => {
+        if (registered.has(target)) return;
+        registered.add(target);
+        target.classList.add("reveal-target");
+        observer.observe(target);
+      });
+    };
+    const routeObserver = new MutationObserver(registerTargets);
+    const start = () => {
+      registerTargets();
+      const page = document.querySelector(".site-page");
+      if (page) routeObserver.observe(page, { childList: true, subtree: true });
+      document.body.classList.add("motion-ready");
+    };
+    window.addEventListener("matrix:page-ready", start);
     return () => {
       observer.disconnect();
+      routeObserver.disconnect();
+      window.removeEventListener("matrix:page-ready", start);
       document.body.classList.remove("motion-ready");
     };
   }, [pathname]);

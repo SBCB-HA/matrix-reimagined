@@ -4,56 +4,73 @@ import { ArrowUpRight, Search } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Container } from "@/components/layout/Container";
 import { newsArticles } from "@/data/site";
-
-function normalize(value: string) {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d");
-}
+import { newsCategories } from "@/data/reference";
+import { normalizeSearch } from "@/lib/search";
 
 export function NewsPage() {
   const [query, setQuery] = useState("");
-  const articles = newsArticles.filter((article) =>
-    normalize(article.title + " " + article.category).includes(normalize(query.trim())),
+  const [category, setCategory] = useState("Tất cả");
+  const articles = newsArticles.filter(
+    (article) =>
+      (category === "Tất cả" || article.category === category) &&
+      normalizeSearch(article.title + " " + article.summary + " " + article.category).includes(
+        normalizeSearch(query.trim()),
+      ),
   );
   return (
     <PageShell
-      eyebrow="Tin tức"
-      title="Góc nhìn từ hệ sinh thái Matrix."
-      description="Tìm hiểu Matrix Holding, các đơn vị thành viên và những hướng kết nối trong hệ sinh thái."
+      eyebrow="MATRIX HOLDING · INSIGHTS"
+      title="Tin tức & góc nhìn"
+      description="Những câu chuyện, hoạt động và góc nhìn phát triển từ hệ sinh thái Matrix Holding."
     >
       <section className="section">
         <Container>
-          <div className="content-toolbar">
-            <p>{articles.length} bài viết</p>
+          <div className="content-toolbar" data-reveal>
+            <p role="status">{articles.length} bài viết</p>
             <label className="search-field">
               <Search size={18} />
-              <span className="sr-only">Tìm bài viết</span>
+              <span className="sr-only">Tìm trong chuyên mục</span>
               <input
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Tìm bài viết…"
+                placeholder="Tìm trong chuyên mục"
               />
             </label>
           </div>
+          <nav className="content-filters" aria-label="Danh mục tin tức" data-reveal>
+            {newsCategories.map((item) => (
+              <button
+                type="button"
+                key={item}
+                aria-pressed={category === item}
+                onClick={() => setCategory(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
           {articles.length ? (
             <div className="article-grid">
-              {articles.map((article) => (
-                <article className="article-card" key={article.slug}>
+              {articles.map((article, index) => (
+                <article
+                  className="article-card"
+                  key={article.slug}
+                  data-reveal
+                  style={{ transitionDelay: `${(index % 2) * 80}ms` }}
+                >
                   <Link
                     to="/tin-tuc/$slug"
                     params={{ slug: article.slug }}
                     tabIndex={-1}
                     aria-hidden="true"
                   >
-                    <img src={article.image} alt="" width={1200} height={912} loading="lazy" />
+                    <img src={article.image} alt="" width={1200} height={800} loading="lazy" />
                   </Link>
                   <div className="article-card-body">
                     <span className="article-meta">
-                      {article.category} · {article.date}
+                      {article.category} ·{" "}
+                      <time dateTime={article.publishedAt}>{article.date}</time>
                     </span>
                     <h2>
                       <Link to="/tin-tuc/$slug" params={{ slug: article.slug }}>
@@ -75,9 +92,16 @@ export function NewsPage() {
             </div>
           ) : (
             <div className="empty-state" role="status">
-              <h2>Chưa tìm thấy bài viết phù hợp.</h2>
-              <p>Thử từ khóa khác hoặc xem lại tất cả bài viết.</p>
-              <button className="button button-primary" onClick={() => setQuery("")}>
+              <h2>Không tìm thấy bài viết phù hợp</h2>
+              <p>Thử một từ khóa hoặc chuyên mục khác.</p>
+              <button
+                type="button"
+                className="button button-primary"
+                onClick={() => {
+                  setQuery("");
+                  setCategory("Tất cả");
+                }}
+              >
                 Xem tất cả
               </button>
             </div>
@@ -99,23 +123,24 @@ export function NewsDetailPage({ article }: { article: (typeof newsArticles)[num
       <section className="section">
         <Container>
           <article className="article-detail">
-            <div className="article-meta">
-              Matrix Holding ·{" "}
-              <time dateTime={article.date.split("/").reverse().join("-")}>{article.date}</time>
+            <div className="article-meta" data-reveal>
+              {article.author} · <time dateTime={article.publishedAt}>{article.date}</time>
             </div>
-            <img
-              className="article-cover"
-              src={article.image}
-              alt={article.category}
-              width={1200}
-              height={912}
-            />
-            <div className="prose">
-              {article.sections.map((section) => (
-                <section key={section.title}>
-                  <h2>{section.title}</h2>
-                  <p>{section.text}</p>
-                </section>
+            <figure data-reveal>
+              <img
+                className="article-cover"
+                src={article.image}
+                alt={article.title}
+                width={1200}
+                height={800}
+              />
+              <figcaption className="article-caption">
+                Hình ảnh minh họa cho bài viết của Matrix Holding
+              </figcaption>
+            </figure>
+            <div className="prose article-original-copy">
+              {article.content.split("\n\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
               ))}
             </div>
             <div className="article-end">
@@ -134,6 +159,7 @@ export function NewsDetailPage({ article }: { article: (typeof newsArticles)[num
               .map((other) => (
                 <Link
                   className="related-card"
+                  data-reveal
                   to="/tin-tuc/$slug"
                   params={{ slug: other.slug }}
                   key={other.slug}

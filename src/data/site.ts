@@ -1,7 +1,5 @@
-import { ecosystem, news } from "./home";
-import networkImage from "@/assets/matrix-network.jpg";
-import connectImage from "@/assets/matrix-connect.jpg";
-import venturesImage from "@/assets/matrix-ventures.jpg";
+import { ecosystem } from "./home";
+import { referenceNews } from "./reference";
 
 export const siteNavigation = [
   { label: "Trang chủ", to: "/" },
@@ -91,98 +89,7 @@ export const ecosystemDetails = ecosystemContent.map((details, index) => {
   return { ...item, ...details };
 });
 
-const articleContent = [
-  {
-    slug: "matrix-holding-he-sinh-thai-kinh-doanh",
-    category: "Matrix Holding",
-    summary:
-      "Tìm hiểu mô hình kết nối dịch vụ, cộng đồng kinh doanh và cộng đồng đầu tư của Matrix Holding.",
-    image: venturesImage,
-    sections: [
-      {
-        title: "Một định hướng phát triển chung",
-        text: "Matrix Holding hoạt động trong lĩnh vực đầu tư và phát triển hệ sinh thái kinh doanh đa ngành tại Việt Nam. Vai trò của công ty mẹ là quản trị, vận hành và điều phối các hoạt động trong hệ sinh thái.",
-      },
-      {
-        title: "Ba hướng kết nối",
-        text: "Matrix Network tập trung vào mạng lưới dịch vụ doanh nghiệp. Matrix Connect phát triển cộng đồng kết nối kinh doanh. Matrix Ventures xây dựng cộng đồng kết nối đầu tư. Mỗi đơn vị đảm nhiệm một vai trò trong định hướng phát triển chung.",
-      },
-      {
-        title: "Cùng doanh nghiệp phát triển",
-        text: "Thông qua các đơn vị và cộng đồng, Matrix Holding hướng đến việc tạo điều kiện để doanh nghiệp tiếp cận nguồn lực và cơ hội thị trường. Tìm hiểu thêm từng đơn vị tại trang Hệ sinh thái hoặc liên hệ để trao đổi nhu cầu hợp tác.",
-      },
-    ],
-  },
-  {
-    slug: "matrix-network-dich-vu-doanh-nghiep",
-    category: "Hệ sinh thái",
-    summary:
-      "Vai trò của Matrix Network trong việc kết nối nguồn lực và các đơn vị cung cấp dịch vụ cho doanh nghiệp.",
-    image: networkImage,
-    sections: [
-      {
-        title: "Kết nối nguồn lực chuyên môn",
-        text: "Matrix Network là một đơn vị trong hệ sinh thái Matrix Holding, đảm nhiệm vai trò xây dựng, quản lý và điều phối các đơn vị cung cấp dịch vụ cho doanh nghiệp.",
-      },
-      {
-        title: "Xuất phát từ nhu cầu doanh nghiệp",
-        text: "Các lĩnh vực được giới thiệu trong mạng lưới gồm chiến lược, nghiên cứu, pháp lý, tài chính và kế toán. Việc trao đổi nhu cầu cụ thể giúp doanh nghiệp xác định hướng kết nối phù hợp.",
-      },
-      {
-        title: "Tìm hiểu cơ hội hợp tác",
-        text: "Doanh nghiệp có thể gửi thông tin về lĩnh vực hoạt động và nhu cầu kết nối tới Matrix Holding để bắt đầu trao đổi. Các nội dung hợp tác cần được thống nhất trực tiếp với đơn vị liên quan.",
-      },
-    ],
-  },
-  {
-    slug: "matrix-capital-ket-noi-dau-tu",
-    category: "Kết nối đầu tư",
-    summary: "Một góc nhìn về vai trò của cộng đồng kết nối đầu tư trong hệ sinh thái kinh doanh.",
-    image: venturesImage,
-    sections: [
-      {
-        title: "Không gian trao đổi về đầu tư",
-        text: "Cộng đồng kết nối đầu tư là một trong những hướng phát triển được giới thiệu trong hệ sinh thái Matrix Holding. Mục tiêu là tạo môi trường trao đổi giữa những người quan tâm đến đầu tư và phát triển doanh nghiệp.",
-      },
-      {
-        title: "Vai trò trong hệ sinh thái",
-        text: "Trong cấu trúc đang được giới thiệu, Matrix Ventures đảm nhiệm việc xây dựng, quản lý và điều phối các cộng đồng kết nối đầu tư. Doanh nghiệp có thể tìm hiểu thêm tại trang chi tiết Matrix Ventures.",
-      },
-      {
-        title: "Bắt đầu từ đối thoại",
-        text: "Để trao đổi về một ý tưởng hoặc nhu cầu kết nối, hãy giới thiệu lĩnh vực hoạt động, mục tiêu và thông tin liên hệ của bạn. Nội dung trên website cung cấp thông tin giới thiệu; các điều kiện hợp tác được trao đổi trực tiếp.",
-      },
-    ],
-  },
-  {
-    slug: "matrix-community-ket-noi-kinh-doanh",
-    category: "Cộng đồng",
-    summary: "Kết nối doanh nghiệp thông qua chia sẻ kinh nghiệm, nguồn lực và cơ hội hợp tác.",
-    image: connectImage,
-    sections: [
-      {
-        title: "Giá trị của cộng đồng",
-        text: "Một cộng đồng kinh doanh tạo không gian để doanh nghiệp trao đổi kiến thức, chia sẻ kinh nghiệm và tìm kiếm các mối quan hệ hợp tác phù hợp.",
-      },
-      {
-        title: "Kết nối trong hệ sinh thái Matrix",
-        text: "Matrix Connect đảm nhiệm vai trò xây dựng, quản lý và điều phối các cộng đồng kết nối kinh doanh trong hệ sinh thái Matrix Holding.",
-      },
-      {
-        title: "Từ kết nối đến hợp tác",
-        text: "Mỗi cuộc trao đổi có thể bắt đầu từ một nhu cầu cụ thể: tìm đối tác, chia sẻ nguồn lực hoặc tìm hiểu một lĩnh vực mới. Liên hệ Matrix Holding để giới thiệu doanh nghiệp và nhu cầu kết nối của bạn.",
-      },
-    ],
-  },
-];
-
-// Nội dung giới thiệu được biên soạn từ dữ liệu trong project.
-// Đối chiếu với bản bài viết chính thức trước khi xuất bản.
-export const newsArticles = articleContent.map((details, index) => {
-  const item = news[index];
-  if (!item) throw new Error("Thiếu dữ liệu bài viết");
-  return { ...item, ...details };
-});
+export const newsArticles = referenceNews;
 
 export function pageHead(title: string, description: string) {
   return {

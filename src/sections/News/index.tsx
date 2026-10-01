@@ -3,17 +3,14 @@ import { Link } from "@tanstack/react-router";
 import { newsArticles as news } from "@/data/site";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { homeCopy } from "@/data/reference";
 
 export function News() {
   return (
     <section className="section news-section" id="news">
       <Container>
         <div className="section-title-row">
-          <SectionHeading
-            eyebrow="TIN TỨC VÀ SỰ KIỆN"
-            title="Những câu chuyện đang tiếp diễn."
-            light
-          />
+          <SectionHeading eyebrow="TIN TỨC VÀ SỰ KIỆN" title={homeCopy.newsTitle} light />
           <Link to="/tin-tuc">
             Xem tất cả <ArrowUpRight />
           </Link>

@@ -5,13 +5,18 @@ import { contact, ecosystemDetails } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="lien-he">
       <Container>
         <div className="footer-top">
           <Link className="brand brand-footer" to="/">
-            <span className="brand-mark">M</span>
-            <span className="brand-divider" />
-            <span>Matrix Holding</span>
+            <img
+              className="brand-footer-logo"
+              src="/images/brand/logo-business-transparent.png"
+              alt="Matrix Holding"
+              width={1280}
+              height={1280}
+              loading="lazy"
+            />
           </Link>
           <div className="contact-list">
             <a href={`mailto:${contact.email}`}>

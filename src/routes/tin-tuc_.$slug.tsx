@@ -4,7 +4,9 @@ import { newsArticles, pageHead } from "@/data/site";
 
 export const Route = createFileRoute("/tin-tuc_/$slug")({
   loader: ({ params }) => {
-    const article = newsArticles.find((entry) => entry.slug === params.slug);
+    const article = newsArticles.find(
+      (entry) => entry.slug === params.slug || entry.legacySlug === params.slug,
+    );
     if (!article) throw notFound();
     return article;
   },

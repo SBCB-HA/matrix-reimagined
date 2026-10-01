@@ -17,6 +17,7 @@ import { Route as TinTucRouteImport } from './routes/tin-tuc'
 import { Route as TuyenDungRouteImport } from './routes/tuyen-dung'
 import { Route as HeSinhThaiSlugRouteImport } from './routes/he-sinh-thai_.$slug'
 import { Route as TinTucSlugRouteImport } from './routes/tin-tuc_.$slug'
+import { Route as TuyenDungIdRouteImport } from './routes/tuyen-dung_.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const TinTucSlugRoute = TinTucSlugRouteImport.update({
   path: '/tin-tuc/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TuyenDungIdRoute = TuyenDungIdRouteImport.update({
+  id: '/tuyen-dung_/$id',
+  path: '/tuyen-dung/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/tuyen-dung': typeof TuyenDungRoute
   '/he-sinh-thai/$slug': typeof HeSinhThaiSlugRoute
   '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/tuyen-dung/$id': typeof TuyenDungIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/tuyen-dung': typeof TuyenDungRoute
   '/he-sinh-thai/$slug': typeof HeSinhThaiSlugRoute
   '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/tuyen-dung/$id': typeof TuyenDungIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/tuyen-dung': typeof TuyenDungRoute
   '/he-sinh-thai_/$slug': typeof HeSinhThaiSlugRoute
   '/tin-tuc_/$slug': typeof TinTucSlugRoute
+  '/tuyen-dung_/$id': typeof TuyenDungIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/tuyen-dung'
     | '/he-sinh-thai/$slug'
     | '/tin-tuc/$slug'
+    | '/tuyen-dung/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/tuyen-dung'
     | '/he-sinh-thai/$slug'
     | '/tin-tuc/$slug'
+    | '/tuyen-dung/$id'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/tuyen-dung'
     | '/he-sinh-thai_/$slug'
     | '/tin-tuc_/$slug'
+    | '/tuyen-dung_/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   TuyenDungRoute: typeof TuyenDungRoute
   HeSinhThaiSlugRoute: typeof HeSinhThaiSlugRoute
   TinTucSlugRoute: typeof TinTucSlugRoute
+  TuyenDungIdRoute: typeof TuyenDungIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TinTucSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tuyen-dung_/$id': {
+      id: '/tuyen-dung_/$id'
+      path: '/tuyen-dung/$id'
+      fullPath: '/tuyen-dung/$id'
+      preLoaderRoute: typeof TuyenDungIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   TuyenDungRoute: TuyenDungRoute,
   HeSinhThaiSlugRoute: HeSinhThaiSlugRoute,
   TinTucSlugRoute: TinTucSlugRoute,
+  TuyenDungIdRoute: TuyenDungIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

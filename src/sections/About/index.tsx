@@ -3,30 +3,24 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { homeCopy, referenceJobs } from "@/data/reference";
 
 export function About() {
   return (
     <section className="section about" id="about">
       <Container>
         <div className="about-grid">
-          <SectionHeading
-            eyebrow="VỀ CHÚNG TÔI"
-            title="Cùng doanh nghiệp mở ra những khả năng mới."
-          />
+          <SectionHeading eyebrow="VỀ CHÚNG TÔI" title={homeCopy.aboutTitle} />
           <div className="about-copy">
-            <p>
-              Matrix Holding là doanh nghiệp hoạt động trong lĩnh vực đầu tư và phát triển hệ sinh
-              thái kinh doanh đa ngành tại Việt Nam. Chúng tôi hướng đến việc kết nối nguồn lực,
-              cộng đồng và cơ hội để các doanh nghiệp tiềm năng phát triển.
-            </p>
+            <p>{homeCopy.aboutDescription}</p>
             <div className="button-row">
               <Button asChild>
                 <Link to="/gioi-thieu">
-                  Tìm hiểu về Matrix <ArrowUpRight />
+                  Tìm hiểu thêm <ArrowUpRight />
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/lien-he">Trao đổi hợp tác</Link>
+                <a href="#lien-he">Xem Hồ sơ năng lực</a>
               </Button>
             </div>
           </div>
@@ -37,12 +31,14 @@ export function About() {
             <span>Hệ sinh thái trọng điểm</span>
           </div>
           <div>
-            <strong>09+</strong>
-            <span>Doanh nghiệp thành viên</span>
+            <strong>
+              {String(new Set(referenceJobs.map((job) => job.company_name)).size).padStart(2, "0")}
+            </strong>
+            <span>Doanh nghiệp đang tuyển dụng</span>
           </div>
           <div>
-            <strong>2023</strong>
-            <span>Năm thành lập</span>
+            <strong>{referenceJobs.length}</strong>
+            <span>Vị trí đang tuyển</span>
           </div>
         </div>
       </Container>

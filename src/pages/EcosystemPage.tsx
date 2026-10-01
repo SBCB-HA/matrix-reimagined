@@ -3,57 +3,21 @@ import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { ContactCta } from "@/sections/ContactCta";
+import { EcosystemConnections } from "@/sections/Ecosystem/EcosystemConnections";
 import { ecosystemDetails } from "@/data/site";
 
 export function EcosystemPage() {
   return (
     <PageShell
-      eyebrow="Hệ sinh thái"
-      title="Ba hướng kết nối. Một mục tiêu phát triển."
-      description="Dịch vụ doanh nghiệp, cộng đồng kinh doanh và kết nối đầu tư cùng tạo nên hệ sinh thái Matrix Holding."
+      eyebrow="Hệ sinh thái Matrix Holding"
+      title="Kết nối nguồn lực. Cùng nhau phát triển."
+      description="Một trung tâm định hướng, ba thương hiệu thành viên cùng kết nối dịch vụ, cộng đồng và cơ hội đầu tư."
     >
       <section className="section">
         <Container>
-          <div className="ecosystem-grid">
-            {ecosystemDetails.map((item, index) => (
-              <article className="ecosystem-card" key={item.slug}>
-                <img src={item.image} width={1200} height={912} alt={item.name} />
-                <div className="card-overlay" />
-                <span className="card-index">0{index + 1}</span>
-                <div className="card-content">
-                  <h2>{item.name}</h2>
-                  <p className="card-role">{item.focus}</p>
-                  <p>{item.description}</p>
-                  <Link to="/he-sinh-thai/$slug" params={{ slug: item.slug }}>
-                    Tìm hiểu đơn vị <ArrowUpRight />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <EcosystemConnections />
         </Container>
       </section>
-      <section className="section faq">
-        <Container>
-          <SectionHeading
-            eyebrow="CÁCH HỆ SINH THÁI KẾT NỐI"
-            title="Mỗi đơn vị một vai trò. Cùng tạo nên giá trị."
-          />
-          <div className="value-grid">
-            {ecosystemDetails.map((item, index) => (
-              <article className="value-card" key={item.slug}>
-                <span>
-                  0{index + 1} / {item.focus}
-                </span>
-                <h3>{item.name}</h3>
-                <p>{item.introduction}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-      <ContactCta />
     </PageShell>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import { siteNavigation } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
@@ -11,7 +11,13 @@ export function Navbar() {
     <header className="site-header">
       <Container className="flex h-20 items-center justify-between">
         <Link className="brand" to="/" aria-label="Matrix Holding - Trang chủ">
-          <span className="brand-mark">M</span>
+          <img
+            className="brand-logo"
+            src="/images/brand/logo-mark.png"
+            alt=""
+            width={44}
+            height={44}
+          />
           <span className="brand-divider" />
           <span>Matrix Holding</span>
         </Link>
@@ -27,10 +33,10 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <Button asChild className="header-contact">
-          <Link to="/lien-he">
-            Liên hệ hợp tác <ArrowRight size={16} />
-          </Link>
+        <Button asChild className="header-login">
+          <a href="https://matrixholding.com.vn/dang-nhap">
+            <LogIn size={16} /> Đăng nhập
+          </a>
         </Button>
         <Button
           variant="ghost"
@@ -56,6 +62,12 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
+          <a
+            className="mobile-login button button-primary"
+            href="https://matrixholding.com.vn/dang-nhap"
+          >
+            <LogIn size={16} /> Đăng nhập tài khoản
+          </a>
         </nav>
       )}
     </header>

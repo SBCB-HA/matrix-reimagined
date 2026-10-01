@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { aboutIntro } from "@/data/about";
+import { usePageReady } from "@/hooks/usePageReady";
 import {
   AdvantagesSection,
   ChairmanSection,
@@ -13,6 +14,7 @@ import {
 } from "@/sections/About/AboutSections";
 
 export function AboutPage() {
+  usePageReady();
   return (
     <main id="main-content" className="about-page">
       <section className="about-hero">

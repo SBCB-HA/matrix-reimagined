@@ -2,29 +2,25 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
+import { homeCopy } from "@/data/reference";
 
 export function Hero() {
   return (
     <section className="hero" id="top">
       <Container className="hero-inner">
         <div className="hero-content">
-          <p className="hero-kicker">MATRIX HOLDING · VIETNAM</p>
+          <p className="hero-kicker">{homeCopy.eyebrow}</p>
           <h1>
-            Kết nối để
+            Kiến tạo hệ sinh thái
             <br />
-            <em>kiến tạo</em>
-            <br />
-            tương lai.
+            <em>kinh doanh đa ngành</em>
           </h1>
-          <p className="hero-description">
-            Một hệ sinh thái kinh doanh đa ngành, nơi nguồn lực, cộng đồng và cơ hội đầu tư cùng
-            phát triển.
-          </p>
+          <p className="hero-description">{homeCopy.description}</p>
           <div className="hero-actions">
             <Button asChild variant="light">
-              <Link to="/he-sinh-thai">
-                Khám phá hệ sinh thái <ArrowUpRight />
-              </Link>
+              <a href="#about">
+                Khám phá Matrix Holding <ArrowUpRight />
+              </a>
             </Button>
             <Button asChild variant="outline">
               <Link to="/gioi-thieu">Về Matrix Holding</Link>
@@ -34,7 +30,13 @@ export function Hero() {
         <div className="hero-visual" aria-hidden="true">
           <div className="hero-orbit" />
           <div className="hero-orbit orbit-two" />
-          <span className="hero-symbol">M</span>
+          <img
+            className="hero-brand-logo"
+            src="/images/brand/logo-mark.png"
+            alt=""
+            width={660}
+            height={720}
+          />
           <span className="hero-point point-network">NETWORK</span>
           <span className="hero-point point-connect">CONNECT</span>
           <span className="hero-point point-ventures">VENTURES</span>

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
+import { usePageReady } from "@/hooks/usePageReady";
 
 export function PageShell({
   eyebrow,
@@ -13,8 +14,9 @@ export function PageShell({
   title: string;
   description?: string;
   children: ReactNode;
-  back?: { label: string; to: "/he-sinh-thai" | "/tin-tuc" };
+  back?: { label: string; to: "/he-sinh-thai" | "/tin-tuc" | "/tuyen-dung" };
 }) {
+  usePageReady();
   return (
     <main id="main-content">
       <section className="page-hero">
