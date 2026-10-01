@@ -38,13 +38,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <div
-      className={
-        pathname === "/"
-          ? "site-page"
-          : `site-page interior-page${pathname === "/gioi-thieu" ? " about-route" : ""}`
-      }
-    >
+    <div className={pathname === "/" ? "site-page" : "site-page interior-page"}>
       <a className="skip-link" href="#main-content">
         Chuyển đến nội dung
       </a>

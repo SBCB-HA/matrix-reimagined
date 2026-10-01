@@ -99,7 +99,7 @@ export function ChairmanSection() {
         <div className="about-chairman-grid">
           <figure className="about-chairman-portrait" data-reveal>
             <img
-              src="/images/about/chairman-illustration-v2.png"
+              src="/images/about/chairman-portrait-v3.png"
               alt="Nhân vật doanh nhân hư cấu minh họa bằng AI"
               width={1122}
               height={1402}
