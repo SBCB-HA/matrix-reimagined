@@ -13,7 +13,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     )
       return;
     const targets = document.querySelectorAll(
-      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div",
+      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div, [data-reveal]",
     );
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,7 +38,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <div className={pathname === "/" ? "site-page" : "site-page interior-page"}>
+    <div
+      className={
+        pathname === "/"
+          ? "site-page"
+          : `site-page interior-page${pathname === "/gioi-thieu" ? " about-route" : ""}`
+      }
+    >
       <a className="skip-link" href="#main-content">
         Chuyển đến nội dung
       </a>
