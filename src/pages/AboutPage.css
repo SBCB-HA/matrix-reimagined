@@ -151,7 +151,7 @@
   background: radial-gradient(ellipse at 85% 60%, #31536b, transparent 60%), var(--deep);
 }
 
-.site-page .about-hero > div:not(.brand-sculpture) {
+.site-page .about-hero > div:not(.about-hero-artwork) {
   position: relative;
   z-index: 1;
 }
@@ -259,4 +259,16 @@
 .site-page .about-hero {
   min-height: 330px;
   padding-block: 3.5rem;
+}
+
+.site-page .about-hero > .about-hero-artwork {
+  position: absolute;
+  left: auto;
+  right: 7%;
+  flex: none;
+  z-index: 0;
+}
+.site-page .about-hero p {
+  max-width: 850px;
+  text-wrap: pretty;
 }
