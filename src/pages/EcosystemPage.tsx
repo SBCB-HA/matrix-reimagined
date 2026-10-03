@@ -1,3 +1,4 @@
+import "./EcosystemPage.css";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
@@ -9,6 +10,7 @@ import { ecosystemDetails } from "@/data/site";
 export function EcosystemPage() {
   return (
     <PageShell
+      image="/images/editorial/architecture.webp"
       eyebrow="Hệ sinh thái Matrix Holding"
       title="Kết nối nguồn lực. Cùng nhau phát triển."
       description="Một trung tâm định hướng, ba thương hiệu thành viên cùng kết nối dịch vụ, cộng đồng và cơ hội đầu tư."
@@ -25,6 +27,7 @@ export function EcosystemPage() {
 export function EcosystemDetailPage({ item }: { item: (typeof ecosystemDetails)[number] }) {
   return (
     <PageShell
+      image="/images/editorial/architecture.webp"
       eyebrow={item.name}
       title={item.headline}
       description={item.focus}

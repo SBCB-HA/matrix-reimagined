@@ -1,5 +1,7 @@
+import "./HistoryTimeline.css";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { editorialImages } from "@/data/visuals";
 import { milestones } from "@/data/about";
 
 export function HistoryTimeline() {
@@ -51,8 +53,16 @@ export function HistoryTimeline() {
       >
         <div className="about-history-content" key={milestone.year}>
           <img
-            src={`/images/about/${milestone.image}`}
-            alt={milestone.alt}
+            src={
+              [
+                editorialImages.introduction,
+                editorialImages.foundations,
+                editorialImages.positioning,
+                editorialImages.models,
+                editorialImages.hero,
+              ][selected]
+            }
+            alt="Ảnh minh họa hành trình phát triển doanh nghiệp"
             width={800}
             height={540}
             loading="lazy"

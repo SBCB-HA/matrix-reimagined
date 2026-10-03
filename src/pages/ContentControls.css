@@ -1,0 +1,96 @@
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: min(100%, 360px);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  color: var(--muted-foreground);
+}
+
+.search-field:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.search-field input {
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
+.search-field input:focus-visible {
+  outline: 0;
+}
+
+.content-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.content-filters button {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted-foreground);
+  background: var(--card);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.content-filters button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.content-filters button[aria-pressed="true"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--light);
+}
+
+.career-search .search-field {
+  flex: 1;
+  width: auto;
+  min-width: 260px;
+}
+
+.site-page .content-filters {
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.2rem;
+}
+
+.site-page .content-filters button {
+  border-radius: 0;
+  background: transparent;
+  border-color: transparent;
+  padding: 0.7rem 1rem;
+}
+
+.site-page .content-filters button[aria-pressed="true"] {
+  background: var(--deep);
+  color: var(--coral);
+}
+
+.site-page .search-field {
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #6b8da3;
+  padding: 0.9rem 0;
+}

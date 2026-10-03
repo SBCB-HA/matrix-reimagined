@@ -1,0 +1,52 @@
+.matrix-network {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+  max-width: 510px;
+}
+.matrix-network::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 25%;
+  height: 1px;
+  background: color-mix(in srgb, var(--deep) 25%, transparent);
+}
+.matrix-network a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.matrix-network-node {
+  width: 13px;
+  height: 13px;
+  background: var(--surface);
+  border: 2px solid var(--deep);
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+.matrix-network a:hover .matrix-network-node {
+  background: var(--deep);
+  box-shadow: 0 0 0 5px #17233b12;
+}
+.matrix-network small {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-top: 0.3rem;
+}
+@media (max-width: 500px) {
+  .matrix-network {
+    gap: 0.6rem;
+  }
+}

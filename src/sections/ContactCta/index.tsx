@@ -1,3 +1,4 @@
+import "./ContactCta.css";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";

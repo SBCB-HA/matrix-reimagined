@@ -1,3 +1,5 @@
+import { MatrixSystem } from "./MatrixSystem";
+import "./Hero.css";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
@@ -27,19 +29,8 @@ export function Hero() {
             </Button>
           </div>
         </div>
-        <div className="hero-visual" aria-hidden="true">
-          <div className="hero-orbit" />
-          <div className="hero-orbit orbit-two" />
-          <img
-            className="hero-brand-logo"
-            src="/images/brand/logo-mark.png"
-            alt=""
-            width={660}
-            height={720}
-          />
-          <span className="hero-point point-network">NETWORK</span>
-          <span className="hero-point point-connect">CONNECT</span>
-          <span className="hero-point point-ventures">VENTURES</span>
+        <div className="hero-system-visual">
+          <MatrixSystem />
         </div>
       </Container>
       <a className="scroll-cue" href="#about" aria-label="Cuộn xuống">

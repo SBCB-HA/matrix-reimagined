@@ -1,3 +1,5 @@
+import "./ContentControls.css";
+import "./CareersPage.css";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, BriefcaseBusiness, MapPin, Search, Wallet } from "lucide-react";
@@ -23,6 +25,7 @@ export function CareersPage() {
   const companies = [...new Set(visibleJobs.map((job) => job.company_name))].slice(0, 5);
   return (
     <PageShell
+      image="/images/editorial/careers-team.webp"
       eyebrow="MATRIX HOLDING CAREERS"
       title="Cơ hội phù hợp cho hành trình tiếp theo của bạn."
       description="Khám phá các vị trí từ Matrix Holding và những doanh nghiệp trong hệ sinh thái đối tác."
@@ -187,6 +190,7 @@ export function CareerDetailPage({ job }: { job: (typeof referenceJobs)[number] 
     : "Đang cập nhật";
   return (
     <PageShell
+      image="/images/editorial/careers-team.webp"
       eyebrow="Vị trí đang tuyển"
       title={job.title}
       description={job.summary}

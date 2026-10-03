@@ -1,6 +1,8 @@
+import "./AboutPage.css";
 import { Container } from "@/components/layout/Container";
 import { aboutIntro } from "@/data/about";
 import { usePageReady } from "@/hooks/usePageReady";
+import { editorialImages } from "@/data/visuals";
 import {
   AdvantagesSection,
   ChairmanSection,
@@ -18,6 +20,9 @@ export function AboutPage() {
   return (
     <main id="main-content" className="about-page">
       <section className="about-hero">
+        <div className="about-hero-artwork" aria-hidden="true">
+          <img src={editorialImages.introduction} alt="" width={1024} height={1536} />
+        </div>
         <Container>
           <span className="about-eyebrow">Matrix Holding</span>
           <h1>Giới thiệu</h1>
@@ -25,6 +30,23 @@ export function AboutPage() {
           <div className="about-hero-lines" aria-hidden="true" />
         </Container>
       </section>
+      <nav className="about-jump-nav" aria-label="Các phần giới thiệu">
+        <Container className="about-jump-links">
+          {[
+            ["loi-chu-tich", "Lời Chủ tịch"],
+            ["doi-tac", "Đối tác"],
+            ["nen-tang", "Nền tảng"],
+            ["mo-hinh", "Hệ sinh thái"],
+            ["lich-su", "Hành trình"],
+            ["quy-trinh", "Quy trình"],
+            ["loi-the", "Lợi thế"],
+          ].map(([id, label]) => (
+            <a key={id} href={`#${id}`}>
+              {label}
+            </a>
+          ))}
+        </Container>
+      </nav>
       <ChairmanSection />
       <PartnersSection />
       <PositioningSection />

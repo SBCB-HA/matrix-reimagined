@@ -1,0 +1,206 @@
+main [data-reveal] {
+  transition:
+    opacity 0.8s ease,
+    translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+@keyframes interior-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orbit-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+}
+
+.site-page:not(.interior-page) .section-heading h2 {
+  font-size: clamp(30px, 3.5vw, 48px);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.site-page:not(.interior-page) .section-heading p {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@keyframes brand-float {
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes faq-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root:root {
+  --background: #f3f3ec;
+  --foreground: #17233b;
+  --card: #f3f3ec;
+  --card-foreground: #17233b;
+  --primary: #17233b;
+  --primary-foreground: #f3f3ec;
+  --secondary: #b5cedb;
+  --secondary-foreground: #17233b;
+  --muted: #e3e8e6;
+  --muted-foreground: #64717d;
+  --accent: #b5cedb;
+  --accent-foreground: #17233b;
+  --border: #cbd6d9;
+  --input: #cbd6d9;
+  --ring: #31536b;
+  --deep: #17233b;
+  --deep-soft: #31536b;
+  --surface: #b5cedb;
+  --coral: #b5cedb;
+  --light: #f3f3ec;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+.site-page {
+  overflow: clip;
+}
+.site-page h1,
+.site-page h2,
+.site-page h3 {
+  text-wrap: pretty;
+}
+.site-page .section {
+  padding: clamp(5rem, 8vw, 9rem) 0;
+}
+.site-page .section-heading h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.3vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+.site-page .section-heading p,
+.site-page .eyebrow {
+  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+}
+.site-page .section-heading p::before {
+  height: 1px;
+  background: #31536b;
+}
+.site-page .button {
+  border-radius: 2px;
+  min-height: 3.2rem;
+  padding: 0.9rem 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.site-page .button-primary {
+  background: var(--deep-soft);
+}
+.site-page .button-primary:hover {
+  background: #31536b;
+}
+.site-page .button-light {
+  background: var(--coral);
+  color: var(--deep);
+}
+.site-page .button-light:hover {
+  background: #d7e5e9;
+}
+.site-page .button svg,
+.site-page .text-link svg {
+  transition: transform 0.3s;
+}
+.site-page .button:hover svg,
+.site-page .text-link:hover svg {
+  transform: translate(3px, -3px);
+}
+.site-page .text-link {
+  border-color: #31536b;
+  font-weight: 500;
+}
+.site-page .value-card,
+.site-page .related-card,
+.site-page .empty-state {
+  border-radius: 2px;
+  padding: 2.2rem;
+}
+.site-page .value-card h3,
+.site-page .related-card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.65rem;
+}
+.site-page .value-card {
+  border-top: 2px solid #6b8da3;
+}
+.site-page .story-image {
+  border-radius: 140px 140px 2px 2px;
+  filter: saturate(0.6);
+}
+.site-page .prose p {
+  font-size: 1.04rem;
+  line-height: 2;
+}
+.site-page .prose h2 {
+  font-weight: 400;
+}
+.site-page .reveal-target {
+  transition-duration: 0.45s;
+}
+.site-page .scroll-progress {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--coral);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  .site-page .section {
+    padding: 4.5rem 0;
+  }
+  .site-page .value-card {
+    padding: 1.5rem;
+  }
+}
+
+.site-page .section-heading h2,
+.site-page .page-hero h1,
+.site-page .value-card h3,
+.site-page .related-card h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.site-page .section-heading h2 {
+  font-size: clamp(1.9rem, 3.3vw, 3.3rem);
+}

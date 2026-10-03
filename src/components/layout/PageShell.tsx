@@ -1,7 +1,9 @@
+import "./PageShell.css";
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Container } from "./Container";
 import { usePageReady } from "@/hooks/usePageReady";
+import { editorialImages } from "@/data/visuals";
 
 export function PageShell({
   eyebrow,
@@ -9,7 +11,9 @@ export function PageShell({
   description,
   children,
   back,
+  image = editorialImages.hero,
 }: {
+  image?: string;
   eyebrow: string;
   title: string;
   description?: string;
@@ -20,6 +24,9 @@ export function PageShell({
   return (
     <main id="main-content">
       <section className="page-hero">
+        <div className="page-artwork" aria-hidden="true">
+          <img src={image} alt="" width={1024} height={1536} />
+        </div>
         <Container>
           <nav className="breadcrumbs" aria-label="Đường dẫn">
             <Link to="/">Trang chủ</Link>

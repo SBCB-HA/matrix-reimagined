@@ -1,0 +1,367 @@
+.job-count {
+  grid-column: 1 / -1;
+  font-size: 1.5rem;
+}
+
+.job-count span {
+  font-size: 0.65rem;
+  opacity: 0.65;
+}
+
+.career-state {
+  margin-bottom: 4rem;
+}
+
+.career-search {
+  flex-wrap: wrap;
+}
+
+.careers-results-grid {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 32px;
+  scroll-margin-top: 30px;
+}
+
+.career-sidebar {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  align-self: start;
+}
+
+.career-sidebar h2 {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.career-sidebar > p:not(.eyebrow) {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.career-sidebar h3 {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.career-sidebar p.career-company-name {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.job-result-count {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-bottom: 22px;
+}
+
+.job-list {
+  display: grid;
+  gap: 20px;
+}
+
+.job-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 18px;
+  background: var(--card);
+  padding: 26px;
+}
+
+.job-card:nth-child(even) {
+  border-left-color: var(--coral);
+}
+
+.job-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.job-card h2 {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.job-company {
+  color: var(--primary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.job-employment {
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 22px 0 18px;
+}
+
+.job-meta span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.job-meta svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.job-card > p {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.job-card-end {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.job-card-end > span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+}
+
+.content-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.content-pagination button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.content-pagination button[aria-current="page"] {
+  background: var(--primary);
+  color: var(--light);
+  border-color: var(--primary);
+}
+
+.job-detail-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+}
+
+.job-detail-block {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 24px;
+  background: var(--card);
+}
+
+.job-detail-block h2 {
+  font-family: var(--font-display);
+  font-size: 25px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.job-detail-block h3 {
+  margin: 28px 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.job-detail-block p {
+  color: var(--muted-foreground);
+  line-height: 1.85;
+  white-space: pre-line;
+  margin-bottom: 24px;
+}
+
+.job-overview {
+  display: grid;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.job-overview > div {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 15px;
+}
+
+.job-overview dt {
+  font-weight: 600;
+}
+
+.job-overview dd {
+  color: var(--muted-foreground);
+}
+
+.job-company-panel {
+  align-self: start;
+  background: var(--surface);
+}
+
+.job-detail-block .job-salary-note {
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+@media (hover: hover) {
+  .job-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 16px 40px color-mix(in oklab, var(--deep) 8%, transparent);
+  }
+}
+
+@media (max-width: 1000px) {
+  .careers-results-grid {
+    grid-template-columns: 1fr;
+  }
+  .career-sidebar {
+    display: none;
+  }
+  .job-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .job-card {
+    padding: 22px;
+  }
+  .job-card-heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .job-card h2 {
+    font-size: 20px;
+  }
+  .job-detail-block {
+    padding: 24px;
+  }
+  .job-overview > div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .job-card-end {
+    flex-wrap: wrap;
+  }
+}
+
+.site-page .career-search {
+  background: var(--card);
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.site-page .career-sidebar {
+  border-radius: 2px;
+  background: var(--deep);
+  color: var(--light);
+  padding: 2rem;
+  position: sticky;
+  top: 2rem;
+}
+.site-page .career-sidebar .eyebrow,
+.site-page .career-sidebar p.career-company-name {
+  color: var(--coral);
+}
+.site-page .career-sidebar > p:not(.eyebrow) {
+  color: #d7e5e9;
+}
+.site-page .career-sidebar h2 {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+.site-page .job-list {
+  gap: 1rem;
+}
+.site-page .job-card {
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  border-left: 2px solid #6b8da3;
+  padding: 2rem;
+  background: var(--card);
+}
+.site-page .job-card h2 {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+}
+.site-page .job-employment {
+  border-radius: 2px;
+  background: var(--accent);
+  font-size: 0.65rem;
+}
+.site-page .job-company {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.site-page .job-card-end > span:last-child {
+  color: #31536b;
+}
+.site-page .job-card:hover {
+  box-shadow: 0 12px 32px #17233b0a;
+  border-color: #6b8da3;
+}
+.site-page .job-detail-block {
+  border-radius: 2px;
+  border-top: 2px solid #6b8da3;
+}
+.site-page .job-company-panel {
+  background: var(--surface);
+  position: sticky;
+  top: 2rem;
+}
+.site-page .job-detail-block h2 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+.site-page .content-pagination button {
+  border-radius: 2px;
+}
+@media (max-width: 600px) {
+  .site-page .career-search,
+  .site-page .job-card {
+    padding: 1.4rem;
+  }
+  .site-page .career-search .search-field {
+    flex-basis: 100%;
+  }
+}

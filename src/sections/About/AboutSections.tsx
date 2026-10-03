@@ -1,3 +1,4 @@
+import "./AboutSections.css";
 import {
   Building2,
   Compass,
@@ -24,21 +25,28 @@ import {
 } from "@/data/about";
 import { PartnerCarousel } from "./PartnerCarousel";
 import { HistoryTimeline } from "./HistoryTimeline";
+import { EditorialImage } from "@/components/common/EditorialImage";
+import { editorialImages } from "@/data/visuals";
 
 function AboutHeading({
   eyebrow,
   title,
   description,
+  image,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  image?: string;
 }) {
   return (
-    <div className="about-heading" data-reveal>
-      <span className="about-eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
-      {description && <p>{description}</p>}
+    <div className={`about-heading${image ? " about-heading-with-image" : ""}`} data-reveal>
+      {image && <EditorialImage src={image} motion="curtain" className="about-heading-thumbnail" />}
+      <div>
+        <span className="about-eyebrow">{eyebrow}</span>
+        <h2>{title}</h2>
+        {description && <p>{description}</p>}
+      </div>
     </div>
   );
 }
@@ -71,7 +79,15 @@ function Cards({
             )}
             <Icon className="about-card-icon" size={32} aria-hidden="true" />
             <div>
-              {variant === "model" ? (
+              {variant === "commitment" || variant === "advantage" || variant === "process" ? (
+                <details className="about-card-disclosure" open={index === 0}>
+                  <summary>
+                    <h3>{item.title}</h3>
+                    <span aria-hidden="true">+</span>
+                  </summary>
+                  <p>{item.text}</p>
+                </details>
+              ) : variant === "model" ? (
                 <>
                   <h3>{item.label}</h3>
                   <h4>{item.title}</h4>
@@ -84,7 +100,9 @@ function Cards({
                   <h3>{item.title}</h3>
                 </>
               )}
-              <p>{item.text}</p>
+              {variant !== "commitment" && variant !== "advantage" && variant !== "process" && (
+                <p>{item.text}</p>
+              )}
             </div>
           </article>
         );
@@ -94,18 +112,18 @@ function Cards({
 }
 export function ChairmanSection() {
   return (
-    <section className="about-section about-chairman">
+    <section className="about-section about-chairman" id="loi-chu-tich">
       <Container>
         <div className="about-chairman-grid">
           <figure className="about-chairman-portrait" data-reveal>
             <img
-              src="/images/about/chairman-portrait-v3.png"
-              alt="Nhân vật doanh nhân hư cấu minh họa bằng AI"
+              src="/images/editorial/planning.webp"
+              alt="Ảnh minh họa hoạt động hoạch định chiến lược"
               width={1122}
               height={1402}
               fetchPriority="high"
             />
-            <figcaption>Minh họa AI</figcaption>
+            <figcaption>Ảnh minh họa · Unsplash</figcaption>
           </figure>
           <div className="about-chairman-copy" data-reveal>
             <span className="about-eyebrow">Lời Chủ tịch</span>
@@ -122,7 +140,7 @@ export function ChairmanSection() {
 }
 export function PartnersSection() {
   return (
-    <section className="about-section about-partners">
+    <section className="about-section about-partners" id="doi-tac">
       <Container>
         <AboutHeading
           eyebrow="Đối tác"
@@ -136,10 +154,11 @@ export function PartnersSection() {
 }
 export function PositioningSection() {
   return (
-    <section className="about-section about-positioning">
+    <section className="about-section about-positioning" id="dinh-vi">
       <Container>
         <AboutHeading
           eyebrow="Định vị thương hiệu"
+          image={editorialImages.positioning}
           title="“Là thương hiệu tiên phong trong lĩnh vực tư vấn, đầu tư và phát triển hệ sinh thái kinh doanh đa ngành.”"
           description="Matrix Holding định vị bản thân là đơn vị kiến tạo và phát triển hệ sinh thái kinh doanh trong nhiều lĩnh vực khác nhau thông qua các dự án, mô hình kinh doanh hiệu quả và tối ưu."
         />
@@ -149,10 +168,11 @@ export function PositioningSection() {
 }
 export function FoundationsSection() {
   return (
-    <section className="about-section about-foundations">
+    <section className="about-section about-foundations" id="nen-tang">
       <Container>
         <AboutHeading
           eyebrow="Nền tảng phát triển"
+          image={editorialImages.foundations}
           title="Sứ mệnh, tầm nhìn và giá trị cốt lõi."
           description="Những định hướng nhất quán để Matrix Holding kiến tạo giá trị lâu dài cho doanh nghiệp và cộng đồng."
         />
@@ -163,10 +183,11 @@ export function FoundationsSection() {
 }
 export function OperatingModelsSection() {
   return (
-    <section className="about-section about-models">
+    <section className="about-section about-models" id="mo-hinh">
       <Container>
         <AboutHeading
           eyebrow="Mô hình hoạt động"
+          image={editorialImages.models}
           title="Ba hệ sinh thái, một mạng lưới nguồn lực."
           description="Mỗi hệ sinh thái đảm nhận một vai trò chuyên biệt, nhưng cùng chung mục tiêu tạo ra giá trị lâu dài cho doanh nghiệp."
         />
@@ -201,7 +222,7 @@ export function ProcessSection() {
 }
 export function CommitmentsSection() {
   return (
-    <section className="about-section about-commitments">
+    <section className="about-section about-commitments" id="cam-ket">
       <Container>
         <AboutHeading
           eyebrow="Điều khoản cam kết"
@@ -221,7 +242,7 @@ export function CommitmentsSection() {
 }
 export function AdvantagesSection() {
   return (
-    <section className="about-section about-advantages">
+    <section className="about-section about-advantages" id="loi-the">
       <Container>
         <AboutHeading
           eyebrow="Lợi thế Matrix Holding"

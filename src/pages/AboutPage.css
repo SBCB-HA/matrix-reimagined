@@ -1,0 +1,262 @@
+.about-page {
+  color: var(--deep);
+  background: var(--card);
+}
+
+.about-page p {
+  line-height: 1.8;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.about-page [data-reveal] {
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.about-page .about-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--light);
+  padding: 60px 0 64px;
+  background:
+    radial-gradient(
+      ellipse at 78% 20%,
+      color-mix(in oklab, var(--primary) 42%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(115deg, var(--deep), var(--deep-soft));
+}
+
+.about-hero .about-eyebrow {
+  color: var(--coral);
+}
+
+.about-hero .about-eyebrow,
+.about-hero h1,
+.about-hero p {
+  animation: about-panel-in 0.75s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.about-hero h1 {
+  animation-delay: 0.1s;
+}
+
+.about-hero p {
+  animation-delay: 0.2s;
+}
+
+.about-hero h1 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.about-hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  color: color-mix(in oklab, var(--light) 85%, transparent);
+  font-size: 17px;
+  margin-top: 22px;
+}
+
+.about-hero-lines {
+  position: absolute;
+  width: 360px;
+  height: 400px;
+  right: 8%;
+  top: -60px;
+  transform: rotate(25deg);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 56px,
+    color-mix(in oklab, var(--light) 7%, transparent) 57px 58px
+  );
+  pointer-events: none;
+}
+
+.about-page button:focus-visible,
+.about-page [tabindex]:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 4px;
+}
+
+.about-history {
+  background: var(--deep-soft);
+  color: var(--light);
+}
+
+@keyframes about-panel-in {
+  from {
+    opacity: 0.2;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .about-hero {
+    padding: 46px 0 48px;
+  }
+  .about-hero p {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page [data-reveal] {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+  .about-page *,
+  .about-page *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+.site-page .about-page {
+  background: var(--background);
+}
+
+.site-page .about-hero {
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  background: radial-gradient(ellipse at 85% 60%, #31536b, transparent 60%), var(--deep);
+}
+
+.site-page .about-hero > div:not(.brand-sculpture) {
+  position: relative;
+  z-index: 1;
+}
+
+.site-page .about-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.site-page .about-hero-lines {
+  opacity: 0.4;
+  background: repeating-linear-gradient(90deg, transparent 0 56px, #b5cedb1c 57px 58px);
+}
+
+.site-page .about-page .about-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.site-page .about-history {
+  background: var(--deep);
+}
+
+@media (max-width: 700px) {
+  .site-page .about-hero {
+    min-height: 350px;
+    padding: 3rem 0;
+  }
+}
+
+.about-hero-artwork {
+  position: absolute;
+  right: 7%;
+  top: 2.5rem;
+  width: 230px;
+  height: 340px;
+  transform: rotate(-7deg);
+  padding: 9px;
+  border: 1px solid #b5cedb77;
+  opacity: 0.65;
+}
+.about-hero-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.45);
+}
+.site-page .about-hero {
+  background: radial-gradient(ellipse at right, #31536b55, transparent 65%), var(--deep);
+}
+.site-page .about-hero p {
+  max-width: 600px;
+}
+@media (max-width: 700px) {
+  .about-hero-artwork {
+    width: 160px;
+    height: 230px;
+    right: -60px;
+    opacity: 0.2;
+  }
+}
+
+.site-page .about-hero {
+  background: #b5cedb;
+  color: var(--foreground);
+}
+.site-page .about-hero .about-eyebrow,
+.site-page .about-hero p {
+  color: var(--foreground);
+}
+
+.about-jump-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--light);
+  border-block: 1px solid var(--border);
+}
+.about-jump-nav .about-jump-links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 3rem);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.about-jump-nav a {
+  flex: none;
+  padding: 1.1rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+.about-jump-nav a:hover,
+.about-jump-nav a:focus-visible {
+  border-color: var(--primary);
+}
+.site-page .about-hero h1 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+.site-page .about-hero {
+  min-height: 330px;
+  padding-block: 3.5rem;
+}

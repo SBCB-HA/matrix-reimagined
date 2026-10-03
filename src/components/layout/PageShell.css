@@ -1,0 +1,204 @@
+.page-hero .hero-kicker {
+  text-transform: uppercase;
+}
+
+.interior-page .page-hero .hero-kicker {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.interior-page .page-hero .hero-kicker {
+  animation: interior-enter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0 5rem;
+  color: var(--light);
+  background: radial-gradient(ellipse at 95% 100%, #31536b, transparent 65%), var(--deep);
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  right: -4rem;
+  top: 1rem;
+  width: 25rem;
+  height: 25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 1.6rem 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5.2vw, 5rem);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.page-description {
+  position: relative;
+  z-index: 1;
+  color: #d7e5e9;
+  max-width: 720px;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  margin: 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  color: #d7e5e9;
+  font-size: 0.78rem;
+  padding-bottom: 3rem;
+}
+
+.breadcrumbs a:hover {
+  color: var(--light);
+}
+
+@media (max-width: 900px) {
+  .page-hero {
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-hero h1 {
+    font-size: 2.55rem;
+  }
+  .page-description {
+    font-size: 1rem;
+  }
+  .breadcrumbs {
+    padding-bottom: 2rem;
+  }
+}
+
+.interior-page .page-hero h1 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.interior-page .page-hero h1,
+.interior-page .page-hero .page-description {
+  animation: interior-enter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.interior-page .page-hero h1 {
+  animation-delay: 0.1s;
+}
+
+.interior-page .page-hero .page-description {
+  animation-delay: 0.2s;
+}
+
+.site-page .page-hero {
+  padding: 2rem 0 5rem;
+  background: radial-gradient(ellipse at 85% 75%, #31536b 0, transparent 55%), var(--deep);
+  min-height: 440px;
+}
+.site-page .page-hero > div:not(.brand-sculpture) {
+  position: relative;
+  z-index: 1;
+}
+.site-page .page-hero::after {
+  border-color: #b5cedb2c;
+  width: 36rem;
+  height: 36rem;
+  right: -6rem;
+  top: -8rem;
+}
+.site-page .page-hero h1 {
+  max-width: 930px;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.8vw, 5.7rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+.site-page .page-hero .hero-kicker {
+  color: var(--coral);
+  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+}
+.site-page .page-description {
+  max-width: 670px;
+  color: #d7e5e9;
+  font-size: 1rem;
+}
+.site-page .breadcrumbs {
+  font-size: 0.7rem;
+  color: #d7e5e9;
+  padding-bottom: 2.5rem;
+}
+@media (max-width: 700px) {
+  .site-page .page-hero {
+    min-height: 360px;
+    padding-bottom: 3rem;
+  }
+  .site-page .page-hero h1 {
+    font-size: 2.65rem;
+  }
+}
+
+.site-page .page-hero {
+  background: radial-gradient(ellipse at right, #31536b55, transparent 60%), var(--deep);
+}
+.page-artwork {
+  position: absolute;
+  right: 3%;
+  top: 2rem;
+  width: 240px;
+  height: 330px;
+  opacity: 0.35;
+  transform: rotate(8deg);
+  border: 1px solid #b5cedb77;
+  padding: 9px;
+  pointer-events: none;
+}
+.page-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.3);
+}
+.site-page .page-hero::after {
+  border-radius: 0;
+  width: 280px;
+  height: 380px;
+  top: 0;
+  right: 2%;
+  transform: rotate(-5deg);
+}
+.site-page .page-hero h1 {
+  max-width: 900px;
+}
+@media (max-width: 700px) {
+  .page-artwork {
+    right: -80px;
+    width: 200px;
+    height: 270px;
+    opacity: 0.14;
+  }
+}
+
+.site-page .page-hero {
+  background: #b5cedb;
+  color: var(--foreground);
+}
+.site-page .page-hero .hero-kicker,
+.site-page .page-hero .page-description,
+.site-page .page-hero .breadcrumbs {
+  color: var(--foreground);
+}

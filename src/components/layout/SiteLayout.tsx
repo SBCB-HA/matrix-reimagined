@@ -1,3 +1,4 @@
+import "./SiteLayout.css";
 import { useEffect, type ReactNode } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { Navbar } from "./Navbar";
@@ -5,6 +6,42 @@ import { Footer } from "./Footer";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useLocation({ select: (location) => location.pathname });
+
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    const updateScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        document.documentElement.style.setProperty(
+          "--scroll-progress",
+          String(height > 0 ? window.scrollY / height : 0),
+        );
+      });
+    };
+    const updatePointer = (event: PointerEvent) => {
+      if (reduced.matches || event.pointerType !== "mouse") return;
+      document.documentElement.style.setProperty(
+        "--pointer-x",
+        String((event.clientX / window.innerWidth) * 2 - 1),
+      );
+      document.documentElement.style.setProperty(
+        "--pointer-y",
+        String((event.clientY / window.innerHeight) * 2 - 1),
+      );
+    };
+    updateScroll();
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    window.addEventListener("resize", updateScroll);
+    window.addEventListener("pointermove", updatePointer, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateScroll);
+      window.removeEventListener("resize", updateScroll);
+      window.removeEventListener("pointermove", updatePointer);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (
@@ -24,7 +61,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           }
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0, rootMargin: "0px 0px 120px 0px" },
     );
     const registerTargets = () => {
       document.querySelectorAll(selector).forEach((target) => {
@@ -52,6 +89,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className={pathname === "/" ? "site-page" : "site-page interior-page"}>
+      <div className="scroll-progress" aria-hidden="true" />
       <a className="skip-link" href="#main-content">
         Chuyển đến nội dung
       </a>

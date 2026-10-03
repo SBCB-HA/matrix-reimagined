@@ -1,0 +1,227 @@
+.news-section {
+  background: var(--deep);
+  color: var(--light);
+}
+
+.news-list {
+  border-top: 1px solid color-mix(in oklab, var(--light) 18%, transparent);
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 35px 100px 1fr 30px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--light) 18%, transparent);
+}
+
+.news-item > span {
+  color: var(--coral);
+  font-size: 0.68rem;
+}
+
+.news-item time {
+  font-size: 0.68rem;
+  opacity: 0.55;
+}
+
+.news-item h3 {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.6vw, 1.15rem);
+  line-height: 1.5;
+}
+
+.news-item > a {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid color-mix(in oklab, var(--light) 30%, transparent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.news-item > a svg {
+  width: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .news-item {
+    grid-template-columns: 30px 1fr 28px;
+  }
+  .news-item time {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .news-item h3 {
+    grid-column: 2;
+  }
+  .news-item > a {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+}
+
+.news-item {
+  transition:
+    opacity 0.8s ease,
+    translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.news-item {
+  grid-template-columns: 55px 120px 1fr 44px;
+  gap: 1.2rem;
+  padding: 1.8rem 1rem;
+  transition:
+    background 0.3s,
+    padding 0.3s,
+    opacity 0.8s,
+    translate 0.8s;
+}
+
+.news-item:hover {
+  background: rgba(255, 255, 255, 0.055);
+  padding-left: 1.5rem;
+}
+
+.news-item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.news-item > a {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+}
+
+.news-item:hover > a {
+  background: var(--coral);
+  color: var(--deep);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 700px) {
+  .news-item {
+    grid-template-columns: 32px 1fr 40px;
+    gap: 0.6rem;
+    padding: 1.4rem 0.2rem;
+  }
+  .news-item time {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .news-item h3 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .news-item > a {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .news-item {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+.site-page .news-section {
+  background: var(--background);
+  color: var(--deep);
+}
+.site-page .news-section .section-heading-light h2 {
+  color: var(--deep);
+}
+.site-page .news-section .section-heading-light p {
+  color: var(--primary);
+}
+.site-page .news-list,
+.site-page .news-item {
+  border-color: var(--border);
+}
+.site-page .news-item {
+  padding: 2rem 0.5rem;
+}
+.site-page .news-item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-weight: 400;
+}
+.site-page .news-item > a {
+  border-color: #6b8da3;
+  color: #31536b;
+}
+.site-page .news-item:hover {
+  background: var(--surface);
+}
+.site-page .news-item > span {
+  color: #31536b;
+}
+
+.site-page .news-item {
+  grid-template-columns: 30px 116px 90px minmax(0, 1fr) 40px;
+  gap: 1.5rem;
+  padding: 1.8rem 0;
+}
+.site-page .news-item .news-thumbnail {
+  width: 116px;
+  height: 88px;
+  border-radius: 3px;
+}
+.site-page .news-item .news-thumbnail img {
+  aspect-ratio: 1.3;
+}
+.site-page .news-item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+  line-height: 1.5;
+}
+.site-page .news-item:hover {
+  padding-left: 0;
+  background: transparent;
+}
+.site-page .news-item:hover .news-thumbnail img {
+  transform: scale(1.12) translateX(-3%);
+  filter: saturate(0.9);
+}
+@media (max-width: 700px) {
+  .site-page .news-item {
+    grid-template-columns: 76px minmax(0, 1fr) 28px;
+    gap: 0.6rem 1rem;
+  }
+  .site-page .news-item > span {
+    display: none;
+  }
+  .site-page .news-item .news-thumbnail {
+    grid-column: 1;
+    grid-row: 1/3;
+    width: 76px;
+    height: 84px;
+  }
+  .site-page .news-item time {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .site-page .news-item h3 {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1rem;
+  }
+  .site-page .news-item > a {
+    grid-column: 3;
+    grid-row: 1/3;
+    width: 28px;
+    height: 28px;
+  }
+}

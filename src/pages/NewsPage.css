@@ -1,0 +1,323 @@
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.article-card > a {
+  display: block;
+  overflow: hidden;
+}
+
+.article-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.8;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.article-card:hover img {
+  transform: scale(1.04);
+}
+
+.article-card-body {
+  padding: 2rem;
+}
+
+.article-meta {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.article-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.035em;
+}
+
+.article-card h2 a:hover {
+  color: var(--primary);
+}
+
+.article-card p {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.article-detail {
+  max-width: 850px;
+  margin: auto;
+}
+
+.article-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.8;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: 2rem 0 3rem;
+}
+
+.article-detail .prose {
+  margin: auto;
+}
+
+.article-end {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .article-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-field {
+    width: 100%;
+  }
+  .article-card-body {
+    padding: 1.5rem;
+  }
+}
+
+.article-card[data-reveal]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px color-mix(in oklab, var(--deep) 8%, transparent);
+}
+
+.interior-page .article-card h2 {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+.article-caption {
+  margin: -2rem 0 3rem;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.article-original-copy p {
+  white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+  .career-search .search-field {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.site-page .article-grid {
+  gap: 3rem 2rem;
+}
+
+.site-page .article-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-page .article-card img {
+  aspect-ratio: 1.45;
+  filter: saturate(0.7);
+}
+
+.site-page .article-card-body {
+  padding: 1.8rem 0 2.5rem;
+}
+
+.site-page.interior-page .article-card h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+.site-page .article-card[data-reveal]:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.site-page .article-card .article-meta {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  color: #31536b;
+}
+
+.site-page .article-cover {
+  border-radius: 2px;
+  aspect-ratio: 1.65;
+}
+
+.site-page .article-detail {
+  max-width: 920px;
+}
+
+.site-page .article-detail figure {
+  margin: 0;
+}
+
+.site-page .article-original-copy p:first-child::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0.9;
+  padding: 0.5rem 0.8rem 0 0;
+  color: #31536b;
+}
+
+@media (min-width: 901px) {
+  .site-page .article-card:first-child {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding-bottom: 2.5rem;
+  }
+  .site-page .article-card:first-child .article-card-body {
+    padding: 0;
+  }
+  .site-page .article-card:first-child h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Compact illustrations sit beside copy on listing and detail pages. */
+.site-page .article-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.site-page .article-card,
+.site-page .article-card:first-child {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  padding: 2.5rem 0;
+}
+.site-page .article-card > a {
+  height: 150px;
+  border-radius: 2px;
+}
+.site-page .article-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition:
+    transform 0.9s,
+    filter 0.9s;
+}
+.site-page .article-card:nth-child(odd):hover img {
+  transform: scale(1.13) translateY(-3%);
+}
+.site-page .article-card:nth-child(even):hover img {
+  transform: scale(1.13) translateX(3%);
+}
+.site-page .article-card .article-card-body,
+.site-page .article-card:first-child .article-card-body {
+  padding: 0;
+}
+.site-page.interior-page .article-card h2,
+.site-page .article-card:first-child h2 {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+.site-page .article-card p {
+  margin: 0 0 1rem;
+  max-width: 800px;
+}
+.site-page .article-detail {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2rem 2.5rem;
+  max-width: 1050px;
+  align-items: start;
+}
+.site-page .article-detail > .article-meta {
+  grid-column: 1/-1;
+}
+.site-page .article-detail > figure {
+  position: sticky;
+  top: 2rem;
+}
+.site-page .article-cover {
+  width: 180px;
+  height: 150px;
+  margin: 0 0 1rem;
+  object-fit: cover;
+}
+.site-page .article-caption {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+.site-page .article-detail .prose {
+  margin: 0;
+}
+.site-page .article-original-copy p:first-child {
+  margin-top: 0;
+}
+.site-page .article-end {
+  grid-column: 2;
+}
+@media (max-width: 600px) {
+  .site-page .article-card,
+  .site-page .article-card:first-child {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 1.2rem;
+    padding: 1.7rem 0;
+  }
+  .site-page .article-card > a {
+    height: 100px;
+  }
+  .site-page.interior-page .article-card h2,
+  .site-page .article-card:first-child h2 {
+    font-size: 1.15rem;
+  }
+  .site-page .article-card p {
+    font-size: 0.88rem;
+  }
+  .site-page .article-detail {
+    grid-template-columns: 1fr;
+  }
+  .site-page .article-detail > figure {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .site-page .article-cover {
+    width: 90px;
+    height: 100px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  .site-page .article-end {
+    grid-column: 1;
+  }
+}

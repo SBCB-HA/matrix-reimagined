@@ -1,3 +1,4 @@
+import "./Faq.css";
 import * as Accordion from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
 import { faqs } from "@/data/home";

@@ -1,3 +1,4 @@
+import "./ContactPage.css";
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
@@ -5,7 +6,19 @@ import { Container } from "@/components/layout/Container";
 import { contact } from "@/data/site";
 
 export function ContactPage() {
-  const [prepared, setPrepared] = useState(false);
+  const [draft, setDraft] = useState<{ subject: string; body: string } | null>(null);
+  const [copyStatus, setCopyStatus] = useState("");
+  async function copyDraft() {
+    if (!draft) return;
+    try {
+      await navigator.clipboard.writeText(
+        `Gửi đến: ${contact.email}\nTiêu đề: ${draft.subject}\n\n${draft.body}`,
+      );
+      setCopyStatus("Đã sao chép. Bạn có thể dán nội dung vào email của mình.");
+    } catch {
+      setCopyStatus("Không thể sao chép tự động. Hãy chọn nội dung bên dưới để sao chép thủ công.");
+    }
+  }
   function prepareEmail(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const fields = new FormData(event.currentTarget);
@@ -19,11 +32,12 @@ export function ContactPage() {
       fields.get("message"),
     ].join("\n");
     const subject = `Liên hệ hợp tác từ ${fields.get("name")}`;
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setPrepared(true);
+    setDraft({ subject, body });
+    setCopyStatus("");
   }
   return (
     <PageShell
+      image="/images/editorial/atrium.webp"
       eyebrow="Liên hệ Matrix Holding"
       title="Cùng kiến tạo những cơ hội hợp tác giá trị."
       description="Hãy để lại thông tin hoặc liên hệ trực tiếp. Đội ngũ Matrix Holding sẵn sàng trao đổi về nhu cầu, nguồn lực và phương án hợp tác phù hợp."
@@ -83,7 +97,10 @@ export function ContactPage() {
               className="contact-form"
               data-reveal
               onSubmit={prepareEmail}
-              onChange={() => setPrepared(false)}
+              onChange={() => {
+                setDraft(null);
+                setCopyStatus("");
+              }}
             >
               <p className="eyebrow">Trao đổi hợp tác</p>
               <h2>Gửi thông tin cho Matrix Holding</h2>
@@ -142,16 +159,39 @@ export function ContactPage() {
                 />
               </label>
               <p className="form-note">
-                Sau khi bấm gửi, ứng dụng email của bạn sẽ mở sẵn với thông tin liên hệ đã điền.
+                Xem lại nội dung trước khi mở email. Yêu cầu chỉ được gửi khi bạn bấm gửi trong ứng
+                dụng email.
               </p>
               <button className="button button-primary" type="submit">
-                Gửi yêu cầu liên hệ <ArrowUpRight size={18} />
+                Xem lại yêu cầu <ArrowUpRight size={18} />
               </button>
-              {prepared && (
-                <p className="form-feedback" role="status">
-                  Nội dung email đã được chuẩn bị. Nếu ứng dụng email chưa mở, bạn có thể gửi trực
-                  tiếp tới {contact.email}.
-                </p>
+              {draft && (
+                <section
+                  className="contact-draft"
+                  aria-label="Xem lại yêu cầu liên hệ"
+                  aria-live="polite"
+                >
+                  <h3>Nội dung đã sẵn sàng · Chưa gửi</h3>
+                  <p>Gửi đến: {contact.email}</p>
+                  <p className="draft-subject">{draft.subject}</p>
+                  <pre tabIndex={0}>{draft.body}</pre>
+                  <div className="draft-actions">
+                    <a
+                      className="button button-light"
+                      href={`mailto:${contact.email}?subject=${encodeURIComponent(draft.subject)}&body=${encodeURIComponent(draft.body)}`}
+                    >
+                      Mở email <ArrowUpRight size={18} />
+                    </a>
+                    <button className="button button-outline" type="button" onClick={copyDraft}>
+                      Sao chép nội dung
+                    </button>
+                  </div>
+                  <p className="form-note">
+                    Nếu ứng dụng email không mở, sao chép nội dung để gửi bằng dịch vụ email bạn
+                    đang dùng.
+                  </p>
+                  {copyStatus && <p role="status">{copyStatus}</p>}
+                </section>
               )}
             </form>
           </div>

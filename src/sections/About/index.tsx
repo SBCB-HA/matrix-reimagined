@@ -1,9 +1,12 @@
+import "./About.css";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { homeCopy, referenceJobs } from "@/data/reference";
+import { EditorialImage } from "@/components/common/EditorialImage";
+import { editorialImages } from "@/data/visuals";
 
 export function About() {
   return (
@@ -12,6 +15,11 @@ export function About() {
         <div className="about-grid">
           <SectionHeading eyebrow="VỀ CHÚNG TÔI" title={homeCopy.aboutTitle} />
           <div className="about-copy">
+            <EditorialImage
+              src={editorialImages.introduction}
+              motion="curtain"
+              className="about-inline-photo"
+            />
             <p>{homeCopy.aboutDescription}</p>
             <div className="button-row">
               <Button asChild>

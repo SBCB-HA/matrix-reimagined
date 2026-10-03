@@ -1,0 +1,236 @@
+.careers {
+  background: var(--surface);
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.filters span {
+  flex: none;
+  padding: 0.7rem 1rem;
+  background: var(--background);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+}
+
+.filters .active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.company-card {
+  min-height: 170px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.4rem;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 1rem;
+  align-content: space-between;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+
+.company-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.company-card-featured {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.mini-logo {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.company-card h3 {
+  font-size: 0.82rem;
+  margin: 0 0 0.6rem;
+}
+
+.company-card p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.67;
+}
+
+.company-card > a {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.company-card > a svg {
+  width: 0.85rem;
+}
+
+.careers-note {
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  margin: 2rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .company-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .company-card-featured {
+    grid-row: span 2;
+    min-height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .company-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.company-card {
+  transition:
+    opacity 0.8s ease,
+    translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.company-card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.company-card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.careers {
+  background: var(--background);
+}
+
+.filters span {
+  border-radius: 99px;
+  font-size: 0.74rem;
+}
+
+.company-card {
+  min-height: 190px;
+  border-radius: 0.9rem;
+  padding: 1.35rem;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(10, 41, 35, 0.07);
+}
+
+.company-card-featured {
+  min-height: 390px;
+}
+
+.mini-logo {
+  border-radius: 50%;
+}
+
+.company-card h3 {
+  font-size: 0.85rem;
+}
+
+.company-card p {
+  font-size: 0.76rem;
+}
+
+@media (max-width: 700px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .company-card-featured {
+    grid-row: auto;
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 470px) {
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+  .company-card-featured {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .company-card {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+.site-page:not(.interior-page) .company-card h3 {
+  text-transform: none;
+  font-weight: 600;
+}
+
+.mini-logo img {
+  width: 27px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.site-page .careers {
+  background: var(--surface);
+}
+.site-page .company-card {
+  border-radius: 2px;
+  border: 0;
+  border-top: 1px solid #b5a887;
+  padding: 1.7rem;
+  min-height: 215px;
+}
+.site-page .company-card-featured {
+  background: var(--deep);
+  min-height: 450px;
+}
+.site-page .company-card h3 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.site-page .mini-logo {
+  border-color: #aa956b;
+  color: #aa956b;
+}
+.site-page .job-count {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+}
+@media (max-width: 700px) {
+  .site-page .company-card-featured {
+    min-height: 250px;
+  }
+}

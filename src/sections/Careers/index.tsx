@@ -1,3 +1,4 @@
+import "./Careers.css";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";

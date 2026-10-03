@@ -1,3 +1,4 @@
+import "./Footer.css";
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "./Container";

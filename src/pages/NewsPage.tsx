@@ -1,3 +1,5 @@
+import "./ContentControls.css";
+import "./NewsPage.css";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search } from "lucide-react";
@@ -6,6 +8,7 @@ import { Container } from "@/components/layout/Container";
 import { newsArticles } from "@/data/site";
 import { newsCategories } from "@/data/reference";
 import { normalizeSearch } from "@/lib/search";
+import { newsIllustration } from "@/data/visuals";
 
 export function NewsPage() {
   const [query, setQuery] = useState("");
@@ -19,6 +22,7 @@ export function NewsPage() {
   );
   return (
     <PageShell
+      image="/images/editorial/news-services.webp"
       eyebrow="MATRIX HOLDING · INSIGHTS"
       title="Tin tức & góc nhìn"
       description="Những câu chuyện, hoạt động và góc nhìn phát triển từ hệ sinh thái Matrix Holding."
@@ -65,7 +69,13 @@ export function NewsPage() {
                     tabIndex={-1}
                     aria-hidden="true"
                   >
-                    <img src={article.image} alt="" width={1200} height={800} loading="lazy" />
+                    <img
+                      src={newsIllustration(article.slug, article.image)}
+                      alt=""
+                      width={1200}
+                      height={800}
+                      loading="lazy"
+                    />
                   </Link>
                   <div className="article-card-body">
                     <span className="article-meta">
@@ -115,6 +125,7 @@ export function NewsPage() {
 export function NewsDetailPage({ article }: { article: (typeof newsArticles)[number] }) {
   return (
     <PageShell
+      image="/images/editorial/news-services.webp"
       eyebrow={article.category}
       title={article.title}
       description={article.summary}
@@ -129,7 +140,7 @@ export function NewsDetailPage({ article }: { article: (typeof newsArticles)[num
             <figure data-reveal>
               <img
                 className="article-cover"
-                src={article.image}
+                src={newsIllustration(article.slug, article.image)}
                 alt={article.title}
                 width={1200}
                 height={800}

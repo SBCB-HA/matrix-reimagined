@@ -1,0 +1,231 @@
+.about {
+  background: var(--surface);
+}
+
+.about-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.about-copy {
+  padding-top: 0.2rem;
+}
+
+.about-copy > p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+  margin: 0 0 2rem;
+}
+
+.metrics {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.metrics div {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.metrics strong {
+  font-size: clamp(2rem, 4vw, 4rem);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.metrics span {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  .metrics div {
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+  }
+}
+
+.metrics > div {
+  transition:
+    opacity 0.8s ease,
+    translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.metrics > div:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.metrics > div:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.about {
+  background: var(--background);
+}
+
+.about-grid {
+  gap: clamp(2rem, 8vw, 8rem);
+}
+
+.about-copy {
+  padding-top: 3.8rem;
+}
+
+.about-copy > p {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.9;
+}
+
+.about .button-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.metrics strong {
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.metrics span {
+  font-size: 0.83rem;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .about-copy {
+    padding-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .metrics > div {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+.site-page:not(.interior-page) .about-copy {
+  transition:
+    opacity 0.8s,
+    translate 0.8s;
+}
+
+.site-page .about {
+  background: var(--background);
+}
+.site-page .about-grid {
+  gap: 5rem;
+}
+.site-page .about-copy {
+  padding-top: 3.5rem;
+}
+.site-page .metrics {
+  gap: 0;
+  border-color: #6b8da3;
+  margin-top: 4rem;
+  padding-top: 0;
+}
+.site-page .metrics > div {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--border);
+}
+.site-page .metrics > div:first-child {
+  padding-left: 0;
+}
+.site-page .metrics > div:last-child {
+  border: 0;
+}
+.site-page .metrics strong {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  color: #31536b;
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .site-page .about-grid {
+    gap: 0;
+  }
+  .site-page .about-copy {
+    padding-top: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .site-page .metrics > div,
+  .site-page .metrics > div:first-child {
+    padding: 1.5rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+.site-page .about-grid {
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+}
+.site-page .about-copy {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  padding-top: 0;
+  align-items: start;
+}
+.site-page .about-inline-photo {
+  width: 160px;
+  height: 215px;
+  grid-row: 1/3;
+  border-radius: 2px;
+}
+.site-page .about-copy > p {
+  margin: 0;
+  font-size: 1rem;
+}
+.site-page .about-copy .button-row {
+  grid-column: 2;
+}
+@media (max-width: 1000px) {
+  .site-page .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .site-page .about-copy {
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 1.2rem;
+  }
+  .site-page .about-inline-photo {
+    width: 90px;
+    height: 140px;
+    grid-row: 1;
+  }
+  .site-page .about-copy > p {
+    font-size: 0.9rem;
+  }
+  .site-page .about-copy .button-row {
+    grid-column: 1/-1;
+  }
+}

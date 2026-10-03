@@ -1,0 +1,326 @@
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.contact-details > h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.05em;
+}
+
+.contact-details > p {
+  color: var(--muted-foreground);
+  line-height: 1.85;
+}
+
+.contact-details > a,
+.contact-details > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 2rem 0;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.contact-details svg {
+  flex: none;
+  width: 20px;
+  margin-top: 0.25rem;
+  color: var(--primary);
+}
+
+.contact-details small {
+  display: block;
+  color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+}
+
+.contact-form {
+  background: var(--card);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+}
+
+.contact-form h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0 0 2rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.6rem;
+  color: var(--foreground);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.3rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 400;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-note,
+.form-feedback {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.form-feedback {
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 0.6rem;
+  color: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .contact-page-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-quick {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 28px;
+  margin-bottom: 40px;
+}
+
+.contact-quick .eyebrow {
+  margin: 0;
+}
+
+.contact-quick > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.contact-quick svg {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.contact-office {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-top: 32px;
+  background: var(--card);
+}
+
+.contact-office > div {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+}
+
+.contact-office svg {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.contact-office h3 {
+  font-weight: 600;
+}
+
+.contact-office p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  margin-top: 10px;
+}
+
+.contact-office iframe {
+  display: block;
+  height: 240px;
+  width: 100%;
+  border: 0;
+}
+
+.contact-office > a {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: var(--primary);
+  background: var(--surface);
+}
+
+.contact-privacy {
+  display: flex;
+  gap: 14px;
+  padding: 24px;
+  background: var(--surface);
+  margin-top: 24px;
+  border-radius: 16px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.contact-privacy svg {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .contact-quick {
+    align-items: flex-start;
+    gap: 18px;
+    flex-direction: column;
+  }
+  .contact-quick > a {
+    font-size: 13px;
+  }
+}
+
+.site-page .contact-quick {
+  padding-bottom: 2rem;
+  border-color: #6b8da3;
+}
+.site-page .contact-details > h2 {
+  font-weight: 400;
+  font-size: 3rem;
+}
+.site-page .contact-form {
+  border-radius: 2px;
+  background: var(--deep);
+  color: var(--light);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border-top: 2px solid var(--coral);
+}
+.site-page .contact-form h2 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+.site-page .contact-form .eyebrow {
+  color: var(--coral);
+}
+.site-page .contact-form label {
+  color: #d7e5e9;
+  font-weight: 400;
+}
+.site-page .contact-form input,
+.site-page .contact-form textarea,
+.site-page .contact-form select {
+  background: #ffffff06;
+  color: var(--light);
+  border: 0;
+  border-bottom: 1px solid #b5cedb55;
+  border-radius: 0;
+  padding: 0.9rem 0.3rem;
+  color-scheme: dark;
+}
+.site-page .contact-form input:focus,
+.site-page .contact-form textarea:focus,
+.site-page .contact-form select:focus {
+  outline: 1px solid var(--coral);
+  outline-offset: 4px;
+}
+.site-page .contact-form .button-primary {
+  background: var(--coral);
+  color: var(--deep);
+  width: 100%;
+}
+.site-page .contact-form .form-note {
+  color: #d7e5e9;
+}
+.site-page .contact-office,
+.site-page .contact-privacy {
+  border-radius: 2px;
+}
+.site-page .contact-details > a,
+.site-page .contact-details > div {
+  padding: 1.2rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-form .button-primary {
+  background: var(--coral);
+  color: var(--deep);
+}
+.contact-draft {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #b5cedb55;
+}
+.contact-draft h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.contact-draft > p {
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.contact-draft .draft-subject {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.contact-draft pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #ffffff08;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.draft-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.draft-actions .button {
+  font-size: 0.8rem;
+}
+.contact-draft .form-note {
+  margin-top: 1rem;
+}

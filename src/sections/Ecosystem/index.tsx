@@ -1,3 +1,4 @@
+import "./Ecosystem.css";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ecosystemDetails as ecosystem } from "@/data/site";
