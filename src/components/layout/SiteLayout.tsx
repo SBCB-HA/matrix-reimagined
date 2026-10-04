@@ -50,18 +50,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     )
       return;
     const selector =
-      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div, [data-reveal]";
-    const registered = new WeakSet<Element>();
+      ".section-heading, .ecosystem-card, .news-item, .company-card, .metrics > div, .about-copy, .section-intro, .page-artwork, .about-hero-artwork, .page-hero > div:not(.page-artwork), .about-hero > div:not(.about-hero-artwork), .story-grid, .value-card, .article-original-copy, .brand-story-grid > article, .leadership-status, .hero-content, .hero-system-visual, [data-reveal]";
+    const registered = new Set<Element>();
+    const inView = new Set<Element>();
+    const applyVisibility = (target: Element) => {
+      const focused = target.contains(document.activeElement);
+      target.classList.toggle("is-visible", inView.has(target) || focused);
+    };
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) inView.add(entry.target);
+          else inView.delete(entry.target);
+          applyVisibility(entry.target);
         });
       },
-      { threshold: 0, rootMargin: "0px 0px 120px 0px" },
+      { threshold: 0, rootMargin: "0px" },
     );
     const registerTargets = () => {
       document.querySelectorAll(selector).forEach((target) => {
@@ -70,7 +74,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         target.classList.add("reveal-target");
         observer.observe(target);
       });
+      for (const target of registered) {
+        if (!target.isConnected) {
+          observer.unobserve(target);
+          registered.delete(target);
+          inView.delete(target);
+        }
+      }
     };
+    const onFocus = () => inView.forEach(applyVisibility);
     const routeObserver = new MutationObserver(registerTargets);
     const start = () => {
       registerTargets();
@@ -79,10 +91,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       document.body.classList.add("motion-ready");
     };
     window.addEventListener("matrix:page-ready", start);
+    document.addEventListener("focusin", onFocus);
     return () => {
       observer.disconnect();
       routeObserver.disconnect();
       window.removeEventListener("matrix:page-ready", start);
+      document.removeEventListener("focusin", onFocus);
+      registered.forEach((target) => target.classList.remove("reveal-target", "is-visible"));
       document.body.classList.remove("motion-ready");
     };
   }, [pathname]);

@@ -204,3 +204,33 @@ main [data-reveal] {
 .site-page .section-heading h2 {
   font-size: clamp(1.9rem, 3.3vw, 3.3rem);
 }
+
+.motion-ready .site-page .reveal-target {
+  scale: 1;
+  transform-origin: center;
+  transition-property: opacity, translate, scale, transform, border-color, box-shadow;
+  transition-duration: 0.45s;
+  transition-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.motion-ready .site-page .reveal-target:not(.is-visible) {
+  opacity: 0;
+  scale: 0.92;
+  translate: 0 20px;
+  transition-delay: 0ms !important;
+  pointer-events: none;
+}
+.motion-ready .site-page .reveal-target:focus-within {
+  opacity: 1;
+  scale: 1;
+  translate: none;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .site-page .reveal-target {
+    opacity: 1 !important;
+    scale: 1 !important;
+    translate: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+}
