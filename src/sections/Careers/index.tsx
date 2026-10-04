@@ -14,6 +14,7 @@ const companyName = (name: string) =>
       : name;
 export function Careers() {
   const [department, setDepartment] = useState("Tất cả");
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
   const jobs = referenceJobs
     .filter((job) => department === "Tất cả" || job.department === department)
     .slice(0, 4);
@@ -33,12 +34,16 @@ export function Careers() {
           Khám phá các vị trí đang tuyển dụng trong hệ sinh thái Matrix.
         </p>
         <nav className="careers-filters" data-reveal aria-label="Lọc vị trí tuyển dụng">
-          {jobDepartments.map((item) => (
+          {(filtersExpanded ? jobDepartments : ["Tất cả"]).map((item) => (
             <button
               type="button"
               key={item}
               aria-pressed={department === item}
-              onClick={() => setDepartment(item)}
+              aria-expanded={item === "Tất cả" ? filtersExpanded : undefined}
+              onClick={() => {
+                setDepartment(item);
+                if (item === "Tất cả") setFiltersExpanded((expanded) => !expanded);
+              }}
             >
               {item}
             </button>
