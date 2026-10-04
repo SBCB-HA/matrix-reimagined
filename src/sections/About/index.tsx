@@ -28,14 +28,16 @@ export function About() {
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <a href="#lien-he">Xem Hồ sơ năng lực</a>
+                <a href="/ho-so-nang-luc.html" target="_blank" rel="noreferrer">
+                  Xem Hồ sơ năng lực
+                </a>
               </Button>
             </div>
           </div>
         </div>
         <div className="metrics">
           <div>
-            <strong>03</strong>
+            <strong>04</strong>
             <span>Hệ sinh thái trọng điểm</span>
           </div>
           <div>

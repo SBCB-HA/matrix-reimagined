@@ -34,6 +34,13 @@ export const ecosystem: EcosystemItem[] = [
       "Đảm nhiệm vai trò xây dựng, quản lý và điều phối các cộng đồng kết nối đầu tư cho doanh nghiệp.",
     image: venturesImage,
   },
+  {
+    name: "MATRIX ACADEMY",
+    role: "Thành viên của Matrix Holding",
+    description:
+      "Hệ sinh thái đào tạo tinh hoa, phát triển kỹ năng, quản trị và năng lực thực thi cho đội ngũ.",
+    image: "/images/editorial/careers-team.webp",
+  },
 ];
 
 export const news: NewsItem[] = [

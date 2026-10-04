@@ -152,3 +152,11 @@
     transition: none;
   }
 }
+.matrix-system-card-2 {
+  right: 0;
+  bottom: 0;
+}
+.matrix-system-card-3 {
+  left: 0;
+  bottom: 30px;
+}

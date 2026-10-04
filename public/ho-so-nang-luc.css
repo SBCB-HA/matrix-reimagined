@@ -1,0 +1,28 @@
+body {
+  font: 16px/1.8 system-ui;
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 24px;
+  color: #17233b;
+  background: #f3f3ec;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  margin-top: 32px;
+}
+button,
+a {
+  padding: 12px;
+  color: inherit;
+}
+@media print {
+  .actions {
+    display: none;
+  }
+  body {
+    margin: 0;
+    background: white;
+  }
+}

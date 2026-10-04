@@ -13,11 +13,23 @@ export function EcosystemPage() {
       image="/images/editorial/architecture.webp"
       eyebrow="Hệ sinh thái Matrix Holding"
       title="Kết nối nguồn lực. Cùng nhau phát triển."
-      description="Một trung tâm định hướng, ba thương hiệu thành viên cùng kết nối dịch vụ, cộng đồng và cơ hội đầu tư."
+      description="Một trung tâm định hướng, bốn thương hiệu thành viên cùng kết nối dịch vụ, cộng đồng và cơ hội đầu tư."
     >
       <section className="section">
         <Container>
           <EcosystemConnections />
+          <div className="ecosystem-introductions">
+            {ecosystemDetails.map((item) => (
+              <article key={item.slug} id={item.slug}>
+                <p className="eyebrow">{item.focus}</p>
+                <h2>Giới thiệu về {item.name}</h2>
+                <p>{item.introduction}</p>
+                <Link className="text-link" to="/he-sinh-thai/$slug" params={{ slug: item.slug }}>
+                  Khám phá ngay <ArrowUpRight size={18} />
+                </Link>
+              </article>
+            ))}
+          </div>
         </Container>
       </section>
     </PageShell>

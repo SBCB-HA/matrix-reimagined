@@ -2,7 +2,7 @@ import "./Careers.css";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { companyDirectory, homeCopy, jobDepartments, referenceJobs } from "@/data/reference";
+import { jobDepartments, referenceJobs } from "@/data/reference";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
@@ -14,29 +14,25 @@ const companyName = (name: string) =>
       : name;
 export function Careers() {
   const [department, setDepartment] = useState("Tất cả");
-  const companies = companyDirectory
-    .map((company) => ({
-      ...company,
-      jobs: referenceJobs.filter(
-        (job) =>
-          companyName(job.company_name) === company.name &&
-          (department === "Tất cả" || job.department === department),
-      ),
-    }))
-    .filter((company) => company.jobs.length);
+  const jobs = referenceJobs
+    .filter((job) => department === "Tất cả" || job.department === department)
+    .slice(0, 4);
   return (
     <section className="section careers" id="careers">
       <Container>
         <div className="section-title-row">
-          <SectionHeading eyebrow="DOANH NGHIỆP TUYỂN DỤNG" title={homeCopy.careersTitle} />
+          <SectionHeading
+            eyebrow="THÔNG TIN TUYỂN DỤNG"
+            title="Thông tin tuyển dụng từ Matrix Holding"
+          />
           <Link to="/tuyen-dung">
-            Khám phá việc làm <ArrowUpRight />
+            Xem tất cả <ArrowUpRight />
           </Link>
         </div>
         <p className="section-intro">
-          Khám phá các doanh nghiệp đang tuyển dụng trong hệ sinh thái Matrix.
+          Khám phá các vị trí đang tuyển dụng trong hệ sinh thái Matrix.
         </p>
-        <nav className="content-filters" data-reveal aria-label="Lọc doanh nghiệp tuyển dụng">
+        <nav className="content-filters" data-reveal aria-label="Lọc vị trí tuyển dụng">
           {jobDepartments.map((item) => (
             <button
               type="button"
@@ -49,28 +45,22 @@ export function Careers() {
           ))}
         </nav>
         <div className="directory-grid">
-          {companies.map((company) => (
-            <article className="company-card" key={company.name}>
-              <span className="mini-logo">
-                <img
-                  src="/images/brand/logo-mark.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  loading="lazy"
-                />
-              </span>
+          {jobs.map((job) => (
+            <article className="company-card" key={job.id}>
               <div>
-                <h3>{company.name}</h3>
-                <p>{company.field}</p>
+                <p>{companyName(job.company_name)}</p>
+                <h3>{job.title}</h3>
+                <p>
+                  {job.location} · {job.salary}
+                </p>
               </div>
-              <Link className="text-link" to="/tuyen-dung">
-                {company.jobs.length} việc làm <ArrowUpRight size={16} />
+              <Link className="text-link" to="/tuyen-dung/$id" params={{ id: String(job.id) }}>
+                Xem chi tiết <ArrowUpRight size={16} />
               </Link>
             </article>
           ))}
         </div>
-        {!companies.length && (
+        {!jobs.length && (
           <p className="empty-state" role="status">
             Hiện chưa có vị trí tuyển dụng nào.
           </p>

@@ -14,9 +14,9 @@ export function ContactCta() {
         </div>
         <div className="button-row" data-reveal>
           <Button asChild variant="light">
-            <a href="https://matrixholding.com.vn/dang-ky">
-              Đăng ký miễn phí <ArrowUpRight />
-            </a>
+            <Link to="/lien-he">
+              Liên hệ chúng tôi <ArrowUpRight />
+            </Link>
           </Button>
           <Button asChild variant="outline">
             <Link to="/he-sinh-thai">Xem cơ hội hợp tác</Link>

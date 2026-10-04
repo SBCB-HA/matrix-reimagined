@@ -22,7 +22,7 @@ export function Ecosystem() {
                 <h3>{item.name}</h3>
                 <p className="card-role">— {item.role}</p>
                 <p>{item.description}</p>
-                <Link to="/he-sinh-thai">
+                <Link to="/he-sinh-thai/$slug" params={{ slug: item.slug }}>
                   KHÁM PHÁ NGAY <ArrowUpRight />
                 </Link>
               </div>

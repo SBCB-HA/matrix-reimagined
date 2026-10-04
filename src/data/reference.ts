@@ -367,14 +367,19 @@ export const ecosystemMembers = [
     text: "Đảm nhiệm vai trò xây dựng, quản lý và điều phối các đơn vị cung cấp dịch vụ cho doanh nghiệp.",
   },
   {
-    name: "Matrix Community",
+    name: "Matrix Connect",
     role: "Cộng đồng kết nối",
     text: "Đảm nhiệm vai trò xây dựng, quản lý và điều phối các cộng đồng kết nối kinh doanh cho doanh nghiệp.",
   },
   {
-    name: "Matrix Capital",
+    name: "Matrix Ventures",
     role: "Kết nối đầu tư",
     text: "Đảm nhiệm vai trò xây dựng, quản lý và điều phối các cộng đồng kết nối đầu tư cho doanh nghiệp.",
+  },
+  {
+    name: "Matrix Academy",
+    role: "Đào tạo tinh hoa",
+    text: "Đào tạo kỹ năng, quản trị và năng lực thực thi cho đội ngũ.",
   },
 ];
 

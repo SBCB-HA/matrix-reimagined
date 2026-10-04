@@ -321,3 +321,13 @@
     grid-column: 1;
   }
 }
+.news-collection + .news-collection {
+  margin-top: 3.5rem;
+}
+.news-collection > h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}

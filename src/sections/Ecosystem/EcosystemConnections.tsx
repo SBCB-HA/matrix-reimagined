@@ -1,13 +1,13 @@
 import "./EcosystemConnections.css";
 import { useState } from "react";
-import { ArrowUpRight, Network, Users, Layers3 } from "lucide-react";
+import { ArrowUpRight, Network, Users, Layers3, GraduationCap } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ecosystemMembers } from "@/data/reference";
 
 export function EcosystemConnections() {
   const [selected, setSelected] = useState<number | null>(null);
   const member = selected === null ? null : ecosystemMembers[selected];
-  const icons = [Network, Users, Layers3];
+  const icons = [Network, Users, Layers3, GraduationCap];
   return (
     <>
       <div className="ecosystem-connections" data-reveal>
@@ -15,7 +15,7 @@ export function EcosystemConnections() {
           <svg viewBox="0 0 600 540" className="ecosystem-orbit-lines" aria-hidden="true">
             <circle cx="300" cy="270" r="195" className="orbit-ring" />
             <circle cx="300" cy="270" r="172" className="orbit-dashes" />
-            <path d="M300 270 L300 75 M300 270 L469 367 M300 270 L131 367" />
+            <path d="M300 270 L300 75 M300 270 L495 270 M300 270 L300 465 M300 270 L105 270" />
           </svg>
           <div className="orbit-center">
             <span className="brand-mark">M</span>

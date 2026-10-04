@@ -108,7 +108,7 @@
   background: radial-gradient(ellipse at 85% 75%, #31536b 0, transparent 55%), var(--deep);
   min-height: 440px;
 }
-.site-page .page-hero > div:not(.brand-sculpture) {
+.site-page .page-hero > div:not(.page-artwork) {
   position: relative;
   z-index: 1;
 }

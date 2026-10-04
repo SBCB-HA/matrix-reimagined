@@ -25,6 +25,8 @@ export function ContactPage() {
     const body = [
       `Họ và tên: ${fields.get("name")}`,
       `Doanh nghiệp: ${fields.get("company") || "Chưa cung cấp"}`,
+      `Trụ sở chính: ${fields.get("headquarters") || "Chưa cung cấp"}`,
+      `Mã số thuế: ${fields.get("taxCode") || "Chưa cung cấp"}`,
       `Email: ${fields.get("email")}`,
       `Số điện thoại: ${fields.get("phone") || "Chưa cung cấp"}`,
       "",
@@ -58,7 +60,7 @@ export function ContactPage() {
           <div className="contact-page-grid">
             <aside>
               <div className="contact-details" data-reveal>
-                <p className="eyebrow">Thông tin liên hệ</p>
+                <p className="eyebrow">Thông tin doanh nghiệp</p>
                 <h2>Gặp gỡ và kết nối cùng chúng tôi.</h2>
                 <p>
                   Thông tin được tiếp nhận để phục vụ việc trao đổi hợp tác. Chúng tôi tôn trọng và
@@ -69,7 +71,7 @@ export function ContactPage() {
                 <div>
                   <MapPin size={22} />
                   <div>
-                    <h3>Văn phòng Matrix Holding</h3>
+                    <h3>Matrix Holding · Trụ sở chính</h3>
                     <p>{contact.address}</p>
                   </div>
                 </div>
@@ -106,7 +108,7 @@ export function ContactPage() {
               <h2>Gửi thông tin cho Matrix Holding</h2>
               <div className="form-row">
                 <label>
-                  Họ và tên *
+                  Họ tên người đại diện *
                   <input
                     name="name"
                     autoComplete="name"
@@ -122,6 +124,26 @@ export function ContactPage() {
                     autoComplete="organization"
                     maxLength={200}
                     placeholder="Tên doanh nghiệp của bạn"
+                  />
+                </label>
+              </div>
+              <div className="form-row">
+                <label>
+                  Trụ sở chính
+                  <input
+                    name="headquarters"
+                    autoComplete="street-address"
+                    maxLength={300}
+                    placeholder="Địa chỉ trụ sở doanh nghiệp"
+                  />
+                </label>
+                <label>
+                  Mã số thuế
+                  <input
+                    name="taxCode"
+                    inputMode="numeric"
+                    maxLength={20}
+                    placeholder="Mã số thuế doanh nghiệp"
                   />
                 </label>
               </div>
@@ -163,7 +185,7 @@ export function ContactPage() {
                 dụng email.
               </p>
               <button className="button button-primary" type="submit">
-                Xem lại yêu cầu <ArrowUpRight size={18} />
+                Gửi thông tin hợp tác <ArrowUpRight size={18} />
               </button>
               {draft && (
                 <section

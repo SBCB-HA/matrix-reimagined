@@ -39,7 +39,7 @@ export function News() {
               <Link
                 to="/tin-tuc/$slug"
                 params={{ slug: item.slug }}
-                aria-label={`Xem ${item.title}`}
+                aria-label={`Xem chi tiết: ${item.title}`}
               >
                 <ArrowUpRight />
               </Link>

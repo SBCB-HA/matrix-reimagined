@@ -1,14 +1,14 @@
 import "./MatrixSystem.css";
 import { Link } from "@tanstack/react-router";
-import { Network, Users, Layers3, ArrowUpRight } from "lucide-react";
+import { Network, Users, Layers3, GraduationCap, ArrowUpRight } from "lucide-react";
 import { ecosystemDetails } from "@/data/site";
 
-const icons = [Network, Users, Layers3];
+const icons = [Network, Users, Layers3, GraduationCap];
 export function MatrixSystem() {
   return (
     <div className="matrix-system">
       <svg className="matrix-system-lines" viewBox="0 0 500 500" aria-hidden="true">
-        <path d="M250 240V65H80V140M250 65H420V140M250 240V400H120M250 400H420" />
+        <path d="M250 240V65H80V140M250 65H420V140M250 240V400H120M250 400H420 M250 400H80" />
         <circle cx="250" cy="65" r="4" />
         <circle cx="250" cy="400" r="4" />
       </svg>

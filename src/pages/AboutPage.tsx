@@ -1,3 +1,4 @@
+import { BrandStory, Leadership } from "@/sections/About/BrandInformation";
 import "./AboutPage.css";
 import { Container } from "@/components/layout/Container";
 import { aboutIntro } from "@/data/about";
@@ -33,7 +34,9 @@ export function AboutPage() {
       <nav className="about-jump-nav" aria-label="Các phần giới thiệu">
         <Container className="about-jump-links">
           {[
-            ["loi-chu-tich", "Lời Chủ tịch"],
+            ["cau-chuyen", "Câu chuyện"],
+            ["ban-lanh-dao", "Ban lãnh đạo"],
+            ["loi-chu-tich", "Tuyên ngôn Chủ tịch"],
             ["doi-tac", "Đối tác"],
             ["nen-tang", "Nền tảng"],
             ["mo-hinh", "Hệ sinh thái"],
@@ -47,6 +50,8 @@ export function AboutPage() {
           ))}
         </Container>
       </nav>
+      <BrandStory />
+      <Leadership />
       <ChairmanSection />
       <PartnersSection />
       <PositioningSection />

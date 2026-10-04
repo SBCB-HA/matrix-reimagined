@@ -62,6 +62,11 @@ export const operatingModels = [
     title: "Hệ sinh thái cộng đồng kết nối đầu tư",
     text: "Matrix Holding xây dựng Matrix Ventures theo mô hình cộng đồng kết nối đầu tư, nơi doanh nghiệp có cơ hội tiếp cận nguồn vốn đầu tư và nâng cao giá trị của doanh nghiệp.",
   },
+  {
+    label: "Matrix Academy",
+    title: "Hệ sinh thái đào tạo tinh hoa",
+    text: "Đào tạo kỹ năng, quản trị và năng lực thực thi cho đội ngũ.",
+  },
 ];
 export const milestones = [
   {

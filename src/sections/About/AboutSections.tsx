@@ -126,7 +126,7 @@ export function ChairmanSection() {
             <figcaption>Ảnh minh họa · Unsplash</figcaption>
           </figure>
           <div className="about-chairman-copy" data-reveal>
-            <span className="about-eyebrow">Lời Chủ tịch</span>
+            <span className="about-eyebrow">Tuyên ngôn của Chủ tịch</span>
             <Quote className="about-quote-icon" size={42} aria-hidden="true" />
             <blockquote>{chairmanQuote}</blockquote>
             <p>
@@ -143,7 +143,7 @@ export function PartnersSection() {
     <section className="about-section about-partners" id="doi-tac">
       <Container>
         <AboutHeading
-          eyebrow="Đối tác"
+          eyebrow="Đối tác chiến lược"
           title="Đồng hành cùng Matrix Holding"
           description="Sự tin tưởng của các thương hiệu là động lực để chúng tôi tiếp tục kiến tạo những giá trị kinh doanh bền vững."
         />
@@ -188,7 +188,7 @@ export function OperatingModelsSection() {
         <AboutHeading
           eyebrow="Mô hình hoạt động"
           image={editorialImages.models}
-          title="Ba hệ sinh thái, một mạng lưới nguồn lực."
+          title="Bốn hệ sinh thái, một mạng lưới nguồn lực."
           description="Mỗi hệ sinh thái đảm nhận một vai trò chuyên biệt, nhưng cùng chung mục tiêu tạo ra giá trị lâu dài cho doanh nghiệp."
         />
         <Cards items={operatingModels} icons={[Network, Users, Layers3]} variant="model" />

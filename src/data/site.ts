@@ -81,6 +81,21 @@ const ecosystemContent = [
       },
     ],
   },
+  {
+    slug: "matrix-academy",
+    headline: "Phát triển năng lực. Kiến tạo tương lai.",
+    focus: "Đào tạo tinh hoa",
+    introduction:
+      "Matrix Academy phát triển hoạt động đào tạo kỹ năng, quản trị và năng lực thực thi cho đội ngũ trong hệ sinh thái.",
+    capabilities: [
+      { title: "Kỹ năng", text: "Đào tạo kỹ năng và phát triển năng lực cho đội ngũ." },
+      { title: "Quản trị", text: "Đào tạo kiến thức quản trị doanh nghiệp." },
+      {
+        title: "Năng lực thực thi",
+        text: "Phát triển khả năng ứng dụng kiến thức vào hoạt động thực tế.",
+      },
+    ],
+  },
 ];
 
 export const ecosystemDetails = ecosystemContent.map((details, index) => {

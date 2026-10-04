@@ -55,50 +55,70 @@ export function NewsPage() {
             ))}
           </nav>
           {articles.length ? (
-            <div className="article-grid">
-              {articles.map((article, index) => (
-                <article
-                  className="article-card"
-                  key={article.slug}
-                  data-reveal
-                  style={{ transitionDelay: `${(index % 2) * 80}ms` }}
-                >
-                  <Link
-                    to="/tin-tuc/$slug"
-                    params={{ slug: article.slug }}
-                    tabIndex={-1}
-                    aria-hidden="true"
-                  >
-                    <img
-                      src={newsIllustration(article.slug, article.image)}
-                      alt=""
-                      width={1200}
-                      height={800}
-                      loading="lazy"
-                    />
-                  </Link>
-                  <div className="article-card-body">
-                    <span className="article-meta">
-                      {article.category} ·{" "}
-                      <time dateTime={article.publishedAt}>{article.date}</time>
-                    </span>
-                    <h2>
-                      <Link to="/tin-tuc/$slug" params={{ slug: article.slug }}>
-                        {article.title}
-                      </Link>
-                    </h2>
-                    <p>{article.summary}</p>
-                    <Link
-                      className="text-link"
-                      to="/tin-tuc/$slug"
-                      params={{ slug: article.slug }}
-                      aria-label={`Đọc: ${article.title}`}
-                    >
-                      Đọc bài viết <ArrowUpRight size={18} />
-                    </Link>
-                  </div>
-                </article>
-              ))}
+            <div className="news-collections">
+              {[
+                { title: "Tin tức nổi bật", items: articles.filter((item) => item.featured) },
+                {
+                  title: "Tin tức mới nhất",
+                  items: articles.filter((item) => !item.featured).slice(0, 2),
+                },
+                {
+                  title: "Tin tức khác",
+                  items: articles.filter((item) => !item.featured).slice(2),
+                },
+              ].map(
+                (group) =>
+                  group.items.length > 0 && (
+                    <section key={group.title} className="news-collection">
+                      <h2>{group.title}</h2>
+                      <div className="article-grid">
+                        {group.items.map((article, index) => (
+                          <article
+                            className="article-card"
+                            key={article.slug}
+                            data-reveal
+                            style={{ transitionDelay: `${(index % 2) * 80}ms` }}
+                          >
+                            <Link
+                              to="/tin-tuc/$slug"
+                              params={{ slug: article.slug }}
+                              tabIndex={-1}
+                              aria-hidden="true"
+                            >
+                              <img
+                                src={newsIllustration(article.slug, article.image)}
+                                alt=""
+                                width={1200}
+                                height={800}
+                                loading="lazy"
+                              />
+                            </Link>
+                            <div className="article-card-body">
+                              <span className="article-meta">
+                                {article.category} ·{" "}
+                                <time dateTime={article.publishedAt}>{article.date}</time>
+                              </span>
+                              <h2>
+                                <Link to="/tin-tuc/$slug" params={{ slug: article.slug }}>
+                                  {article.title}
+                                </Link>
+                              </h2>
+                              <p>{article.summary}</p>
+                              <Link
+                                className="text-link"
+                                to="/tin-tuc/$slug"
+                                params={{ slug: article.slug }}
+                                aria-label={`Đọc: ${article.title}`}
+                              >
+                                Đọc bài viết <ArrowUpRight size={18} />
+                              </Link>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  ),
+              )}
             </div>
           ) : (
             <div className="empty-state" role="status">
