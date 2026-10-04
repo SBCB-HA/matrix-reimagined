@@ -32,7 +32,7 @@ export function Careers() {
         <p className="section-intro">
           Khám phá các vị trí đang tuyển dụng trong hệ sinh thái Matrix.
         </p>
-        <nav className="content-filters" data-reveal aria-label="Lọc vị trí tuyển dụng">
+        <nav className="careers-filters" data-reveal aria-label="Lọc vị trí tuyển dụng">
           {jobDepartments.map((item) => (
             <button
               type="button"
@@ -44,7 +44,7 @@ export function Careers() {
             </button>
           ))}
         </nav>
-        <div className="directory-grid">
+        <div className="careers-grid">
           {jobs.map((job) => (
             <article className="company-card" key={job.id}>
               <div>
