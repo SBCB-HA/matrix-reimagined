@@ -60,6 +60,13 @@
   outline: 2px solid var(--light);
   outline-offset: 4px;
 }
+/* Keep cards hidden as the intro slides away, before arrival starts. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-intro-active .matrix-system-card {
+    opacity: 0;
+    translate: var(--arrival-x) 0;
+  }
+}
 /* Start the hero choreography only after the intro releases the screen. */
 .home-intro-active .hero-system-visual .matrix-system-card,
 .home-intro-active .hero-content .hero-heading-line > *,

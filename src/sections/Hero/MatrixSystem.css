@@ -215,15 +215,13 @@
   --arrival-turn: -10deg;
   --arrival-delay: 440ms;
 }
+/* Hidden from the first render; the intro release starts arrival once. */
 @media (prefers-reduced-motion: no-preference) {
-  .motion-ready .hero-system-visual:not(.is-visible) .matrix-system-card {
+  .matrix-system-card {
     opacity: 0;
-    clip-path: none;
     translate: var(--arrival-x) 0;
-    transition: none;
   }
-  .motion-ready .hero-system-visual.is-visible .matrix-system-card {
-    clip-path: none;
+  #main-content:not(.home-intro-active) .matrix-system-card {
     animation: matrix-card-arrive 1.45s cubic-bezier(0.16, 1, 0.3, 1) var(--arrival-delay) both;
   }
 }
