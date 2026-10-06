@@ -1,3 +1,4 @@
+import { AnimatedNumber } from "@/components/common/AnimatedNumber";
 import "./About.css";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
@@ -37,17 +38,21 @@ export function About() {
         </div>
         <div className="metrics">
           <div>
-            <strong>04</strong>
+            <strong>
+              <AnimatedNumber value={4} />
+            </strong>
             <span>Hệ sinh thái trọng điểm</span>
           </div>
           <div>
             <strong>
-              {String(new Set(referenceJobs.map((job) => job.company_name)).size).padStart(2, "0")}
+              <AnimatedNumber value={new Set(referenceJobs.map((job) => job.company_name)).size} />
             </strong>
             <span>Doanh nghiệp đang tuyển dụng</span>
           </div>
           <div>
-            <strong>{referenceJobs.length}</strong>
+            <strong>
+              <AnimatedNumber value={referenceJobs.length} />
+            </strong>
             <span>Vị trí đang tuyển</span>
           </div>
         </div>

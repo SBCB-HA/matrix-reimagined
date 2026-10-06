@@ -203,14 +203,14 @@
 }
 
 .site-page .ecosystem-section {
-  background: var(--deep);
-  color: var(--light);
+  background: var(--surface);
+  color: var(--foreground);
 }
 .site-page .ecosystem-section .section-heading p {
-  color: var(--coral);
+  color: var(--deep-soft);
 }
 .site-page .ecosystem-section .section-intro {
-  color: #d7e5e9;
+  color: var(--muted-foreground);
 }
 .site-page .ecosystem-grid {
   gap: 1.5rem;
@@ -297,5 +297,46 @@
 @media (max-width: 650px) {
   .site-page .ecosystem-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Horizontal fold-out, retaining the four-cell composition. */
+.site-page .ecosystem-grid {
+  perspective: 1200px;
+  gap: 1.5rem;
+}
+.site-page .ecosystem-card {
+  transform-origin: left center;
+  overflow: hidden;
+}
+.motion-ready .site-page .ecosystem-card:not(.is-visible) {
+  clip-path: inset(0 100% 0 0);
+  transform: rotateY(12deg);
+}
+.motion-ready .site-page .ecosystem-card.is-visible {
+  clip-path: inset(0);
+  transform: none;
+  transition:
+    clip-path 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.45s,
+    scale 0.45s,
+    translate 0.45s,
+    transform 0.75s;
+}
+.site-page .ecosystem-card > img {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.site-page .ecosystem-card .card-content a svg {
+  transition: transform 0.25s;
+}
+.site-page .ecosystem-card:focus-within .card-content a svg,
+.site-page .ecosystem-card:hover .card-content a svg {
+  transform: translate(4px, -4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .site-page .ecosystem-card {
+    clip-path: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

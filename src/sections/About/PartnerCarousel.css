@@ -32,8 +32,8 @@
 @keyframes partner-unfold {
   from {
     opacity: 0;
-    clip-path: inset(100% 0 0);
-    transform: rotateX(-18deg) translateY(18px);
+    clip-path: inset(0 50%);
+    transform: rotateY(-25deg) scale(0.9);
   }
   to {
     opacity: 1;

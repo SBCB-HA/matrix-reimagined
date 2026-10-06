@@ -216,3 +216,84 @@
 .site-page .menu-button {
   color: var(--foreground);
 }
+
+/* Born & Bred-inspired numbered grid navigation. */
+.site-page .menu-button {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.site-page .mobile-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 24px 50px #17233b22;
+}
+.site-page .mobile-nav > a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  min-height: 110px;
+  background: var(--light);
+  color: var(--deep);
+  animation: matrix-menu-open 0.4s ease both;
+}
+.site-page .mobile-nav > a:hover,
+.site-page .mobile-nav > a:focus-visible {
+  background: var(--surface);
+}
+.site-page .mobile-nav > a > span:last-child {
+  margin-left: auto;
+}
+.menu-index {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+.site-page .mobile-nav .mobile-login {
+  grid-column: 1 / -1;
+  min-height: 64px;
+  padding: 1rem 2rem;
+}
+@keyframes matrix-menu-open {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 700px) {
+  .site-page .mobile-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .site-page .mobile-nav > a {
+    padding: 1rem;
+    min-height: 84px;
+    gap: 0.6rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-page .mobile-nav > a {
+    animation: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-page .menu-button,
+  .site-page .mobile-nav {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .site-page .desktop-nav {
+    display: none;
+  }
+}

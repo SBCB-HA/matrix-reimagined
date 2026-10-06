@@ -73,7 +73,7 @@
 .about-history-content {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
-  animation: about-panel-in 0.45s ease both;
+  animation: about-panel-in 0.25s ease both;
 }
 
 .about-history-content > img {

@@ -160,3 +160,145 @@
   left: 0;
   bottom: 30px;
 }
+
+/* Cypher-inspired depth; Spyker-inspired scroll contraction. */
+.matrix-system {
+  perspective: 1200px;
+}
+.matrix-system-stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(calc(var(--pointer-y, 0) * -4deg)) rotateY(calc(var(--pointer-x, 0) * 5deg));
+  transition: transform 0.35s ease-out;
+}
+.matrix-system-core {
+  border: 1px solid var(--surface);
+  box-shadow:
+    12px 12px 0 #31536b,
+    24px 24px 50px #17233b22;
+}
+.matrix-system-core::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border: 1px solid #31536b44;
+  transform: translateZ(-20px);
+}
+.matrix-system-card {
+  transform-origin: center;
+  border-top: 2px solid var(--deep-soft);
+  transition:
+    transform 0.4s,
+    box-shadow 0.4s,
+    opacity 0.6s,
+    clip-path 0.8s;
+}
+/* Left pair arrives from the left screen edge; right pair from the right. */
+.matrix-system-card-0 {
+  --arrival-x: -100vw;
+  --arrival-turn: -12deg;
+  --arrival-delay: 180ms;
+}
+.matrix-system-card-3 {
+  --arrival-x: -100vw;
+  --arrival-turn: 10deg;
+  --arrival-delay: 360ms;
+}
+.matrix-system-card-1 {
+  --arrival-x: 100vw;
+  --arrival-turn: 12deg;
+  --arrival-delay: 260ms;
+}
+.matrix-system-card-2 {
+  --arrival-x: 100vw;
+  --arrival-turn: -10deg;
+  --arrival-delay: 440ms;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready .hero-system-visual:not(.is-visible) .matrix-system-card {
+    opacity: 0;
+    clip-path: none;
+    translate: var(--arrival-x) 0;
+    transition: none;
+  }
+  .motion-ready .hero-system-visual.is-visible .matrix-system-card {
+    clip-path: none;
+    animation: matrix-card-arrive 1.45s cubic-bezier(0.16, 1, 0.3, 1) var(--arrival-delay) both;
+  }
+}
+@keyframes matrix-card-arrive {
+  from {
+    opacity: 0;
+    translate: var(--arrival-x) 0;
+    rotate: var(--arrival-turn);
+    scale: 0.8;
+  }
+  22% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+    scale: 1;
+  }
+}
+.matrix-system-card:hover,
+.matrix-system-card:focus-visible {
+  transform: translateY(-8px) translateZ(25px);
+  box-shadow: 8px 14px 0 #31536b18;
+}
+@media (hover: none) {
+  .matrix-system-stage {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .matrix-system-stage,
+  .matrix-system-card {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: 1 !important;
+  }
+  .motion-ready .hero-system-visual .matrix-system-card {
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .matrix-system {
+    scale: var(--hero-contract, 1);
+    transform-origin: center;
+  }
+}
+
+/* Keep depth and hovering cards within the visual column. */
+.matrix-system-stage {
+  inset: 12px;
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  .matrix-system-card {
+    width: 170px;
+    padding: 18px;
+  }
+  .matrix-system-card strong {
+    font-size: 0.72rem;
+  }
+  .matrix-system-core {
+    width: 155px;
+    height: 135px;
+  }
+}
+@media (max-width: 360px) {
+  .matrix-system-card {
+    width: 138px;
+    padding: 14px;
+  }
+  .matrix-system-card > span:not(.matrix-system-index) {
+    max-width: 95px;
+  }
+}

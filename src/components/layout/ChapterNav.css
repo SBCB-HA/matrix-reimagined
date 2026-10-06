@@ -1,0 +1,59 @@
+.chapter-nav {
+  position: fixed;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 35;
+  display: grid;
+  gap: 8px;
+}
+.chapter-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.chapter-number {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  color: var(--deep);
+  background: var(--light);
+  font-size: 10px;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.chapter-nav a[aria-current] .chapter-number {
+  background: var(--deep);
+  color: var(--light);
+}
+.chapter-label {
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  padding: 5px 8px;
+  font-size: 11px;
+  background: var(--light);
+  color: var(--deep);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.chapter-nav a:hover .chapter-label,
+.chapter-nav a:focus-visible .chapter-label {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 1350px) {
+  .chapter-nav {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chapter-nav span {
+    transition: none;
+  }
+}

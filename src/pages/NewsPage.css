@@ -331,3 +331,14 @@
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
+
+.site-page .article-card-body h2 {
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.site-page .related-card h3 {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-wrap: balance;
+}

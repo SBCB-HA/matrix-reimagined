@@ -243,7 +243,7 @@
 
 .hero-symbol {
   z-index: 2;
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(13rem, 27vw, 26rem);
   line-height: 1;
   font-weight: 400;
@@ -567,7 +567,7 @@
   border-bottom: 1px solid #b5cedb30;
 }
 .site-page .hero-inner {
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 3rem;
   padding-bottom: 7rem;
 }
@@ -785,4 +785,67 @@
     font-size: 0.92rem;
     line-height: 1.8;
   }
+}
+
+/* Opening copy: line masks, followed by description and actions. */
+.hero-heading-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.hero-heading-line > span,
+.hero-heading-line > em {
+  display: block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready .hero-content.is-visible .hero-heading-line > span,
+  .motion-ready .hero-content.is-visible .hero-heading-line > em {
+    animation: matrix-opening-line 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .motion-ready .hero-content.is-visible .hero-heading-line:nth-child(2) > em {
+    animation-delay: 140ms;
+  }
+  .motion-ready .hero-content.is-visible .hero-kicker {
+    animation: matrix-opening-copy 0.7s ease both;
+  }
+  .motion-ready .hero-content.is-visible .hero-description {
+    animation: matrix-opening-copy 0.9s ease 320ms both;
+  }
+  .motion-ready .hero-content.is-visible .hero-actions {
+    animation: matrix-opening-copy 0.8s ease 520ms both;
+  }
+}
+@keyframes matrix-opening-line {
+  from {
+    transform: translateY(115%) rotate(3deg);
+  }
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes matrix-opening-copy {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading-line > span,
+  .hero-heading-line > em,
+  .hero-kicker,
+  .hero-description,
+  .hero-actions {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.site-page .hero-content {
+  min-width: 0;
 }

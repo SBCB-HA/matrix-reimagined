@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { LogIn, Menu, X } from "lucide-react";
 import { siteNavigation } from "@/data/site";
@@ -8,6 +8,18 @@ import { Container } from "@/components/layout/Container";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [open]);
   return (
     <header className="site-header">
       <Container className="flex h-20 items-center justify-between">
@@ -41,7 +53,8 @@ export function Navbar() {
         </Button>
         <Button
           variant="ghost"
-          className="menu-button lg:hidden"
+          className="menu-button"
+          ref={menuRef}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Đóng menu" : "Mở menu"}
           aria-expanded={open}
@@ -51,8 +64,8 @@ export function Navbar() {
         </Button>
       </Container>
       {open && (
-        <nav id="mobile-navigation" className="mobile-nav" aria-label="Điều hướng trên điện thoại">
-          {siteNavigation.map((item) => (
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Điều hướng mở rộng">
+          {siteNavigation.map((item, index) => (
             <Link
               key={item.to}
               to={item.to}
@@ -60,7 +73,9 @@ export function Navbar() {
               activeProps={{ className: "nav-active", "aria-current": "page" }}
               activeOptions={{ exact: item.to === "/" }}
             >
-              {item.label}
+              <span className="menu-index">0{index + 1}</span>
+              <span>{item.label}</span>
+              <span aria-hidden="true">↗</span>
             </Link>
           ))}
           <a

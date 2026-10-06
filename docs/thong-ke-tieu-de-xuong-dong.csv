@@ -1,0 +1,55 @@
+﻿Trang,Tiêu đề,Số dòng tại 1422px,Chiều rộng khung (px),File CSS,Nhận xét
+/,Kiến tạo hệ sinh thái kinh doanh đa ngành,2,615,src/sections/Hero/Hero.css,Chủ động chia thành hai khối dòng trong Hero/index.tsx.
+/,GIỚI THIỆU MATRIX HOLDING,2,508,src/sections/About/About.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,TIN TỨC MỚI NHẤT TỪ MATRIX HOLDING,2,860,src/sections/News/News.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,2,804,src/sections/News/News.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,2,804,src/sections/News/News.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,MATRIX COMMUNITY HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI KINH DOANH VIỆT NAM,2,804,src/sections/News/News.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,MATRIX HOLDING: TỪ MỘT STARTUP 0 ĐỒNG ĐẾN KHÁT VỌNG TRỞ THÀNH NGƯỜI KIẾN TẠO TƯƠNG LAI CHO THẾ HỆ KỲ LÂN TƯƠNG LAI,2,804,src/sections/News/News.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,Thông tin tuyển dụng từ Matrix Holding,2,860,src/sections/Careers/Careers.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/,Bạn đã sẵn sàng trở thành đối tác của chúng tôi?,3,760,src/sections/ContactCta/ContactCta.css,Khung/cột chứa tiêu đề không đủ chiều rộng ở cỡ chữ hiện tại.
+/gioi-thieu,Từ khởi nguồn sáng tạo đến hệ sinh thái kinh doanh đa ngành.,2,850,src/sections/About/BrandInformation.css,Đoạn chữ dài được trình bày như tiêu đề trong khối/cột.
+/gioi-thieu,"“Là thương hiệu tiên phong trong lĩnh vực tư vấn, đầu tư và phát triển hệ sinh thái kinh doanh đa ngành.”",3,870,src/sections/About/AboutSections.css,Đoạn chữ dài được trình bày như tiêu đề trong khối/cột.
+/gioi-thieu,"Kiến tạo nền tảng để doanh nghiệp tiếp cận, mở ra cơ hội hợp tác và phát triển vượt trội.",4,316,src/sections/About/AboutSections.css,Đoạn chữ dài được trình bày như tiêu đề trong khối/cột.
+/gioi-thieu,Trở thành doanh nghiệp kiến tạo hệ sinh thái kinh doanh hàng đầu tại Việt Nam.,4,316,src/sections/About/AboutSections.css,Đoạn chữ dài được trình bày như tiêu đề trong khối/cột.
+/gioi-thieu,Ươm mầm và hiện thực hóa ý tưởng kinh doanh tiềm năng cùng thế hệ doanh nhân trẻ khởi nghiệp.,5,316,src/sections/About/AboutSections.css,Đoạn chữ dài được trình bày như tiêu đề trong khối/cột.
+/he-sinh-thai,Kết nối nguồn lực. Cùng nhau phát triển.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/he-sinh-thai,"Một hệ sinh thái, kết nối đa chiều.",2,404,src/sections/Ecosystem/EcosystemConnections.css,Tiêu đề trong cột cạnh sơ đồ.
+/tin-tuc,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,2,956,src/pages/NewsPage.css,Tên bài viết dài.
+/tin-tuc,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,2,956,src/pages/NewsPage.css,Tên bài viết dài.
+/tin-tuc,MATRIX COMMUNITY HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI KINH DOANH VIỆT NAM,2,956,src/pages/NewsPage.css,Tên bài viết dài.
+/tin-tuc,MATRIX HOLDING: TỪ MỘT STARTUP 0 ĐỒNG ĐẾN KHÁT VỌNG TRỞ THÀNH NGƯỜI KIẾN TẠO TƯƠNG LAI CHO THẾ HỆ KỲ LÂN TƯƠNG LAI,2,956,src/pages/NewsPage.css,Tên bài viết dài.
+/tuyen-dung,Cơ hội phù hợp cho hành trình tiếp theo của bạn.,3,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung,"Kết nối với đúng cơ hội, đúng doanh nghiệp.",4,204,src/pages/CareersPage.css,Tiêu đề trong sidebar hẹp.
+/lien-he,Cùng kiến tạo những cơ hội hợp tác giá trị.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/lien-he,Gặp gỡ và kết nối cùng chúng tôi.,2,464,src/pages/ContactPage.css,Tiêu đề trong bố cục hai cột.
+/lien-he,Gửi thông tin cho Matrix Holding,2,513,src/pages/ContactPage.css,Tiêu đề trong bố cục hai cột.
+/he-sinh-thai/matrix-network,Nguồn lực để doanh nghiệp tiến xa hơn.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/he-sinh-thai/matrix-connect,Kết nối hôm nay. Cơ hội ngày mai.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/he-sinh-thai/matrix-ventures,Đồng hành cùng những ý tưởng có tiềm năng.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/he-sinh-thai/matrix-academy,Phát triển năng lực. Kiến tạo tương lai.,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/5,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,5,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/5,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/5,MATRIX CAPITAL HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI ĐẦU TƯ VIỆT NAM,2,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/4,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,5,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/4,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/4,MATRIX CAPITAL HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI ĐẦU TƯ VIỆT NAM,2,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/3,MATRIX CAPITAL HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI ĐẦU TƯ VIỆT NAM,4,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/3,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/3,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/2,MATRIX COMMUNITY HỆ SINH THÁI CỘNG ĐỒNG KẾT NỐI KINH DOANH VIỆT NAM,4,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/2,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/2,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/1,MATRIX HOLDING: TỪ MỘT STARTUP 0 ĐỒNG ĐẾN KHÁT VỌNG TRỞ THÀNH NGƯỜI KIẾN TẠO TƯƠNG LAI CHO THẾ HỆ KỲ LÂN TƯƠNG LAI,7,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tin-tuc/1,MATRIX HOLDING: TỪ KHÁT VỌNG KHỞI NGHIỆP ĐẾN HỆ SINH THÁI KINH DOANH ĐA NGÀNH,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tin-tuc/1,MATRIX NETWORK: HỆ SINH THÁI DỊCH VỤ TOÀN DIỆN DÀNH CHO DOANH NGHIỆP TẠI VIỆT NAM,3,508,src/pages/NewsPage.css,Tên bài liên quan dài trong thẻ.
+/tuyen-dung/13,Chuyên viên Kế toán Tổng hợp,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/12,Chuyên viên Phân tích Tài chính,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/11,Chuyên viên Pháp lý Doanh nghiệp,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/10,Chuyên viên Nghiên cứu Thị trường,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/9,Chuyên viên Chiến lược Doanh nghiệp,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/8,Tuyển dụng Giám đốc Điều hành,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/7,Tuyển dụng Giám đốc Điều hành,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/6,Chuyên viên Truyền thông,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/3,Chuyên viên Vận hành Dự án,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.
+/tuyen-dung/2,Chuyên viên Kiểm soát Hợp đồng,2,900,src/components/layout/PageShell.css,Cỡ chữ lớn; khung tiêu đề giới hạn chiều rộng.

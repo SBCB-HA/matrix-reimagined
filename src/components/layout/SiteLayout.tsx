@@ -13,6 +13,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     const updateScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty(
+          "--hero-contract",
+          String(1 - Math.min(window.scrollY / window.innerHeight, 1) * 0.12),
+        );
         const height = document.documentElement.scrollHeight - window.innerHeight;
         document.documentElement.style.setProperty(
           "--scroll-progress",

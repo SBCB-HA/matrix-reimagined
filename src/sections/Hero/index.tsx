@@ -12,10 +12,13 @@ export function Hero() {
       <Container className="hero-inner">
         <div className="hero-content">
           <p className="hero-kicker">{homeCopy.eyebrow}</p>
-          <h1>
-            Kiến tạo hệ sinh thái
-            <br />
-            <em>kinh doanh đa ngành</em>
+          <h1 aria-label="Kiến tạo hệ sinh thái kinh doanh đa ngành">
+            <span className="hero-heading-line" aria-hidden="true">
+              <span>Kiến tạo hệ sinh thái</span>
+            </span>
+            <span className="hero-heading-line" aria-hidden="true">
+              <em>kinh doanh đa ngành</em>
+            </span>
           </h1>
           <p className="hero-description">{homeCopy.description}</p>
           <div className="hero-actions">

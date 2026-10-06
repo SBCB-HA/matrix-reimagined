@@ -43,8 +43,11 @@ export function AboutPage() {
             ["lich-su", "Hành trình"],
             ["quy-trinh", "Quy trình"],
             ["loi-the", "Lợi thế"],
-          ].map(([id, label]) => (
+          ].map(([id, label], index) => (
             <a key={id} href={`#${id}`}>
+              <span className="about-chapter-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               {label}
             </a>
           ))}

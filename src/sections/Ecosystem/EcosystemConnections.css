@@ -397,3 +397,9 @@
     left: 22%;
   }
 }
+
+.site-page .ecosystem-model-copy h2 {
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}

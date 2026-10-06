@@ -49,7 +49,7 @@ export function Careers() {
             </button>
           ))}
         </nav>
-        <div className="careers-grid">
+        <div className="careers-grid" key={department}>
           {jobs.map((job) => (
             <article className="company-card" key={job.id}>
               <div>

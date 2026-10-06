@@ -40,7 +40,7 @@ export function PageShell({
             <span aria-current="page">{eyebrow}</span>
           </nav>
           <p className="hero-kicker">{eyebrow}</p>
-          <h1>{title}</h1>
+          <h1 className={title.length > 65 ? "page-title-long" : undefined}>{title}</h1>
           {description && <p className="page-description">{description}</p>}
         </Container>
       </section>

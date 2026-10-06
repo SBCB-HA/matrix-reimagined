@@ -324,3 +324,10 @@
 .contact-draft .form-note {
   margin-top: 1rem;
 }
+
+.site-page .contact-details h2,
+.site-page .contact-form h2 {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  line-height: 1.45;
+  text-wrap: balance;
+}

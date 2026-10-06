@@ -75,7 +75,7 @@
 }
 
 .about-chairman-copy blockquote {
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: clamp(24px, 2.3vw, 30px);
   font-weight: 400;
   line-height: 1.6;
@@ -734,4 +734,28 @@
   .site-page .about-models .about-model-card {
     min-height: 0;
   }
+}
+
+.site-page .about-positioning .about-heading h2 {
+  font-size: clamp(1.5rem, 2.1vw, 1.9rem);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.site-page .about-foundations .about-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+/* Cream reading surfaces; blue reserved for the ecosystem model. */
+.site-page .about-advantages {
+  background: var(--background);
+}
+.site-page .about-chairman {
+  background: var(--background);
+}
+.site-page .about-models {
+  background: var(--surface);
 }

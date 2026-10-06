@@ -272,3 +272,20 @@
   max-width: 850px;
   text-wrap: pretty;
 }
+
+.about-chapter-index {
+  font-size: 0.65rem;
+  color: var(--muted-foreground);
+  margin-right: 0.5rem;
+}
+.site-page .about-jump-links a {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .site-page .about-hero-artwork img {
+    scale: var(--hero-contract, 1);
+    transform-origin: center;
+  }
+}

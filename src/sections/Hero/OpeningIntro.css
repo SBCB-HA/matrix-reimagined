@@ -1,0 +1,103 @@
+.opening-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: var(--deep);
+  color: var(--light);
+  animation: opening-screen-exit 450ms cubic-bezier(0.76, 0, 0.24, 1) 1200ms forwards;
+}
+.opening-intro-copy {
+  text-align: center;
+}
+.opening-intro-copy > img {
+  width: 48px;
+  height: 54px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin: 0 auto 1.2rem;
+  animation: opening-brand-enter 450ms ease both;
+}
+.opening-intro-brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  margin-bottom: 1.5rem;
+}
+.opening-intro-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.7rem, 4.8vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+.opening-intro-title > span {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.opening-intro-title > span > span {
+  display: block;
+  animation: opening-text-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.opening-intro-title > span:nth-child(2) > span {
+  animation-delay: 100ms;
+  font-weight: 400;
+  color: var(--surface);
+}
+.opening-intro-skip {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: var(--light);
+  border: 1px solid #b5cedb55;
+  cursor: pointer;
+}
+.opening-intro-skip:focus-visible {
+  outline: 2px solid var(--light);
+  outline-offset: 4px;
+}
+/* Start the hero choreography only after the intro releases the screen. */
+.home-intro-active .hero-system-visual .matrix-system-card,
+.home-intro-active .hero-content .hero-heading-line > *,
+.home-intro-active .hero-content .hero-kicker,
+.home-intro-active .hero-content .hero-description,
+.home-intro-active .hero-content .hero-actions {
+  animation: none !important;
+}
+@keyframes opening-text-enter {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes opening-brand-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes opening-screen-exit {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opening-intro {
+    display: none;
+  }
+  .opening-intro,
+  .opening-intro * {
+    animation: none !important;
+  }
+}

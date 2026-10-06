@@ -22,7 +22,9 @@
   font: inherit;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .careers-filters button:hover,
@@ -127,7 +129,7 @@
   display: grid;
   place-items: center;
   border: 1px solid currentColor;
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
 }
 
@@ -270,12 +272,13 @@
 }
 
 .site-page .careers {
-  background: var(--surface);
+  background: var(--background);
+  border-top: 1px solid var(--border);
 }
 .site-page .company-card {
   border-radius: 2px;
   border: 0;
-  border-top: 1px solid #b5a887;
+  border-top: 2px solid var(--deep-soft);
   padding: 1.7rem;
   min-height: 215px;
 }
@@ -299,4 +302,38 @@
   .site-page .company-card-featured {
     min-height: 250px;
   }
+}
+
+.careers-filters button:not(:first-child) {
+  animation: careers-filter-open 0.35s ease both;
+}
+.careers-filters button:nth-child(3n) {
+  animation-delay: 60ms;
+}
+.careers-filters button:nth-child(3n + 1) {
+  animation-delay: 120ms;
+}
+.careers-grid {
+  animation: careers-filter-open 0.35s ease both;
+}
+@keyframes careers-filter-open {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .careers-grid,
+  .careers-filters button {
+    animation: none !important;
+  }
+}
+
+.site-page .careers-grid .company-card p {
+  color: var(--muted-foreground);
+  opacity: 1;
 }
