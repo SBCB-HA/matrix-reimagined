@@ -5,7 +5,7 @@ const chapters = [
   { id: "top", label: "Trang chủ" },
   { id: "about", label: "Giới thiệu" },
   { id: "ecosystem", label: "Hệ sinh thái" },
-  { id: "news", label: "Tin tức" },
+  { id: "news", label: "Doanh nghiệp" },
   { id: "careers", label: "Tuyển dụng" },
   { id: "faq", label: "Câu hỏi" },
 ];

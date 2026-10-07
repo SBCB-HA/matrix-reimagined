@@ -272,7 +272,7 @@
 
 .site-page .ecosystem-card {
   border-radius: 3px;
-  min-height: 520px;
+  min-height: 380px;
 }
 .site-page .ecosystem-card:nth-child(2) {
   transform: none;
@@ -293,6 +293,14 @@
 }
 .site-page .ecosystem-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 960px;
+  margin-inline: auto;
+}
+.site-page .ecosystem-section .card-content {
+  inset: auto 1.5rem 1.5rem;
+}
+.site-page .ecosystem-section .card-index {
+  left: 1.5rem;
 }
 @media (max-width: 650px) {
   .site-page .ecosystem-grid {

@@ -4,7 +4,7 @@ import { ChapterNav } from "@/components/layout/ChapterNav";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
 import { Ecosystem } from "@/sections/Ecosystem";
-import { News } from "@/sections/News";
+import { FeaturedCompanies } from "@/sections/FeaturedCompanies/FeaturedCompanies";
 import { Careers } from "@/sections/Careers";
 import { Faq } from "@/sections/Faq";
 import { ContactCta } from "@/sections/ContactCta";
@@ -22,7 +22,7 @@ export function HomePage() {
         <Hero />
         <About />
         <Ecosystem />
-        <News />
+        <FeaturedCompanies />
         <Careers />
         <Faq />
         <ContactCta />
