@@ -1,3 +1,5 @@
+import directory from "./company-directory.json";
+
 export const companySectors = [
   "Thương mại điện tử",
   "Hàng tiêu dùng",
@@ -6,6 +8,19 @@ export const companySectors = [
   "Ngân hàng",
   "Logistics",
   "Ô tô – Xe máy",
+  "Bán lẻ",
+  "Bất động sản",
+  "Tài chính – Chứng khoán",
+  "Bảo hiểm",
+  "Giáo dục",
+  "Y tế",
+  "Dược phẩm",
+  "Du lịch – Khách sạn",
+  "Nhà hàng – F&B",
+  "Sản xuất – Công nghiệp",
+  "Năng lượng",
+  "Viễn thông",
+  "Truyền thông – Quảng cáo",
 ] as const;
 
 export type CompanySector = (typeof companySectors)[number];
@@ -15,10 +30,15 @@ export interface FeaturedCompany {
   sector: CompanySector;
   description: string;
   profileUrl: string;
+  logo?: string;
+  website?: string;
+  searchLink?: boolean;
 }
 
-// Company profiles are sourced from TopCV. Brand marks: Simple Icons v11.15.0.
-// Logos are stored locally in public/images/companies, with their brand colors.
+// Initial entries link to verified TopCV profiles. New directory entries use
+// TopCV's company search; they do not imply a verified profile or open vacancies.
+// Initial marks: Simple Icons v11.15.0. Directory images: website favicons,
+// retrieved through Google's favicon service and stored locally without recoloring.
 export const featuredCompanies: FeaturedCompany[] = [
   {
     id: "shopee",
@@ -91,4 +111,16 @@ export const featuredCompanies: FeaturedCompany[] = [
     description: "Sản xuất xe máy, ô tô và phát triển công nghệ di chuyển.",
     profileUrl: "https://www.topcv.vn/cong-ty/honda-viet-nam/39333.html",
   },
+  ...directory.map(([name, sector, domain]): FeaturedCompany => ({
+    id: domain.replaceAll(".", "-"),
+    name,
+    sector: sector as CompanySector,
+    description: `Khám phá doanh nghiệp trong lĩnh vực ${sector.toLocaleLowerCase("vi")}.`,
+    profileUrl: `https://www.topcv.vn/cong-ty/tim-kiem?keyword=${encodeURIComponent(name)}`,
+    logo: ["fptretail.com.vn", "goldsunmedia.com.vn"].includes(domain)
+      ? ""
+      : `/images/companies/${domain.replaceAll(".", "-")}.png`,
+    website: `https://${domain}`,
+    searchLink: true,
+  })),
 ];
